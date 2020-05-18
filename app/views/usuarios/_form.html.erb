@@ -1,0 +1,63 @@
+<%= form_for @usuario do |u| %>
+
+    <div class="form-group">
+        <%= u.label :login, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right float-right">
+            <%= u.text_field :login, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :nome, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.text_field :nome, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :email, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.text_field :email, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :senha, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.password_field :senha, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :data_de_nascimento, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.date_field :data_de_nascimento, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :admin, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.check_box :admin %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :gerente, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.check_box :gerente %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= u.label :telefone, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
+            <%= u.text_field :telefone, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class='wid-100p txt-alg-cen'>
+        <%= u.submit 'Cadastrar', class: 'txt-alg-cen btn btn-success btn-sm' %>
+    </div>
+
+<% end %>
