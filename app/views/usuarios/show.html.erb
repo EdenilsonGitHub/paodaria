@@ -2,7 +2,7 @@
     <div class="div-cabeca">
         <div class="label-org"> Usuário (<%= @usuario.nome %>) </div>
         <div class="botoes-org">
-            <%= link_to 'Excluir', usuario_path(@usuario.id), confirm: 'Deseja excluir este usuário permanentemente?', method: :delete, class:'btn btn-danger' %>
+            <%= link_to 'Excluir', usuario_path(@usuario.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
             <%= link_to 'Editar', edit_usuario_path(@usuario.id), class:'btn btn-light' %>
             <%= link_to 'Novo registro', new_usuario_path, class:'btn btn-success' %>
         </div>
