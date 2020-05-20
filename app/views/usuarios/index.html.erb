@@ -13,6 +13,8 @@
                 <th  class="tr_table_index text-center">Admin</th>
                 <th  class="tr_table_index text-center">Gerente</th>
                 <th  class="tr_table_index text-center">Telefone</th>
+                <th  class="tr_table_index text-center">Editar</th>
+                <th  class="tr_table_index text-center">Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,8 @@
                     <td> <%= usuario.admin %> </td>
                     <td> <%= usuario.gerente %> </td>
                     <td> <%= usuario.telefone %> </td>
+                    <td class="pencil"><%= link_to(fa_icon('pencil'), edit_usuario_path(usuario)) %></td>
+                    <td class="trash"><%= link_to(fa_icon('trash'), usuario_path(usuario), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' } ) %></td>
                 </tr>
             <% end %>
         </tbody>
