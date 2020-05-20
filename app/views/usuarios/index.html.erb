@@ -35,8 +35,8 @@
                     <td> <%= usuario.admin %> </td>
                     <td> <%= usuario.gerente %> </td>
                     <td> <%= usuario.telefone %> </td>
-                    <td class="pencil"><%= link_to(fa_icon('pencil'), edit_usuario_path(usuario)) %></td>
-                    <td class="trash"><%= link_to(fa_icon('trash'), usuario_path(usuario), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' } ) %></td>
+                    <td class="text-center"><%= link_to(fa_icon('pencil'), edit_usuario_path(usuario), class:'pencil') %></td>
+                    <td class="text-center"><%= link_to(fa_icon('trash'), usuario_path(usuario), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                 </tr>
             <% end %>
         </tbody>
