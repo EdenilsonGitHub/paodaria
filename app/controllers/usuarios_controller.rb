@@ -11,4 +11,8 @@ class UsuariosController < ApplicationController
             render action: 'new'
         end
     end
+
+    def index
+        @usuarios = Usuario.all
+    end
 end 
