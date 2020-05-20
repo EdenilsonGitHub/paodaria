@@ -1,0 +1,40 @@
+<div class="conteudo">
+    <div>
+        <h2 class="titulo-system-20-px-top-bot">Usuários</h2>
+    </div>
+    <table class="table_index">
+        <thead>
+            <tr>
+                <th  class="tr_table_index text-center">ID</th>
+                <th  class="tr_table_index text-center">Nome</th>
+                <th  class="tr_table_index text-center">login</th>
+                <th  class="tr_table_index text-center">Email</th>
+                <th  class="tr_table_index text-center">Data de nascimento</th>
+                <th  class="tr_table_index text-center">Admin</th>
+                <th  class="tr_table_index text-center">Gerente</th>
+                <th  class="tr_table_index text-center">Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @usuarios.blank? %>
+                <tr>
+                    <td colspan="2">
+                        Não há registros
+                    </td>
+                </tr>
+            <% end %>
+            <% @usuarios.each do |usuario| %>
+                <tr class="<%= cycle("odd", "even") -%>">
+                    <td> <%= usuario.id %> </td>
+                    <td> <%= link_to usuario.nome, usuario_path(usuario), class: 'link-azul' %> </td>
+                    <td> <%= usuario.login %> </td>
+                    <td> <%= usuario.email %> </td>
+                    <td> <%= usuario.data_de_nascimento %> </td>
+                    <td> <%= usuario.admin %> </td>
+                    <td> <%= usuario.gerente %> </td>
+                    <td> <%= usuario.telefone %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
