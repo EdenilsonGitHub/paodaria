@@ -1,0 +1,44 @@
+<div class="conteudo">
+    <div>
+        <h2 class="titulo-system-20-px-top-bot">Produtos</h2>
+    </div>
+    <table class="table_index">
+        <thead>
+            <tr>
+                <th  class="tr_table_index text-center">ID</th>
+                <th  class="tr_table_index text-center">Nome</th>
+                <th  class="tr_table_index text-center">Descricao</th>
+                <th  class="tr_table_index text-center">Data de fabricação</th>
+                <th  class="tr_table_index text-center">Data de Validade</th>
+                <th  class="tr_table_index text-center">Código de barras</th>
+                <th  class="tr_table_index text-center">Quantidade</th>
+                <th  class="tr_table_index text-center">Preço</th>
+                <th  class="tr_table_index text-center">Editar</th>
+                <th  class="tr_table_index text-center">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @produtos.blank? %>
+                <tr>
+                    <td colspan="2">
+                        Não há registros
+                    </td>
+                </tr>
+            <% end %>
+            <% @produtos.each do |produto| %>
+                <tr class="<%= cycle("odd", "even") -%>">
+                    <td> <%= produto.id %> </td>
+                    <td> <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %> </td>
+                    <td> <%= produto.descricao %> </td>
+                    <td> <%= produto.data_fabricacao.strftime("%m/%d/%Y") %> </td>
+                    <td> <%= produto.data_validade.strftime("%m/%d/%Y") %> </td>
+                    <td> <%= produto.codigo_de_barras %> </td>
+                    <td> <%= produto.quantidade %> </td>
+                    <td> <%= produto.preco %> </td>
+                    <td class="text-center"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
+                    <td class="text-center"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
