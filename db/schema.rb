@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2020_05_20_004131) do
 
   create_table "table_produtos", force: :cascade do |t|
     t.string "nome"
-    t.string "descricao"
-    t.datetime "data_validade"
+    t.text "descricao"
+    t.date "data_validade"
     t.string "codigo_de_barras"
     t.integer "quantidade"
-    t.datetime "data_fabricacao"
+    t.date "data_fabricacao"
     t.float "preco"
   end
 
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_004131) do
     t.string "nome"
     t.string "email"
     t.string "senha"
-    t.datetime "data_de_nascimento"
+    t.date "data_de_nascimento"
     t.boolean "admin"
     t.boolean "gerente"
     t.string "telefone"
