@@ -5,7 +5,7 @@ class CreateTableUsuario < ActiveRecord::Migration[6.0]
       t.string   :nome
       t.string   :email
       t.string   :senha
-      t.datetime :data_de_nascimento
+      t.date     :data_de_nascimento
       t.boolean  :admin
       t.boolean  :gerente
       t.string   :telefone
