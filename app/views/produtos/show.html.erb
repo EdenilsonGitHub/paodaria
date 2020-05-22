@@ -1,0 +1,42 @@
+<div class="conteudo">
+    <div class="div-cabeca">
+        <div class="label-org"> Produto (<%= @produto.nome %>) </div>
+        <div class="botoes-org">
+            <%= link_to 'Excluir', produto_path(@produto.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
+            <%= link_to 'Editar', edit_produto_path(@produto.id), class:'btn btn-light' %>
+            <%= link_to 'Novo registro', new_produto_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="tabela-lado-lado">
+        <tbody>
+            <tr>
+                <td class="td-index-esquerda"> Nome: </td>
+                <td class="td-index-direita"> <%= @produto.nome %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Descrição: </td>
+                <td class="td-index-direita"> <%= @produto.descricao %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Data de fabricação: </td>
+                <td class="td-index-direita"> <%= @produto.data_fabricacao.strftime("%m/%d/%Y") %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Data de validade: </td>
+                <td class="td-index-direita"> <%= @produto.data_validade.strftime("%m/%d/%Y") %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Código de barras: </td>
+                <td class="td-index-direita"> <%= @produto.codigo_de_barras %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Quantidade: </td>
+                <td class="td-index-direita"> <%= @produto.quantidade  %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Preço: </td>
+                <td class="td-index-direita"> <%= @produto.preco %> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
