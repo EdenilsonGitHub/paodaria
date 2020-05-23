@@ -9,32 +9,31 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
-                    <form>
+                    <%= form_tag(logar_path) do %>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <span class="input-group-text"><%= fa_icon "user" %></span>
                             </div>
-                            <input type="text" name="" class="form-control input_user" value="" placeholder="Usuário">
+                            <%= text_field_tag :login, nil, class:'form-control input_user', placeholder: "Login" %>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <span class="input-group-text"><%= fa_icon "key", style: 'width: 12px!important' %></span>
                             </div>
-                            <input type="password" name="" class="form-control input_pass" value="" placeholder="Senha">
+                            <%= password_field_tag :senha, nil, class:'form-control input_pass', placeholder: "Senha"  %>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-bottom: 0px!important">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                <label class="custom-control-label" for="customControlInline">Lembrar senha</label>
+                                <%= check_box_tag :conectado, class: 'custom-control-input', id: 'customControlInline' %>
+                                <label class="" style="margin-top: 5px!important" for="customControlInline">Lembrar senha</label>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="button" name="button" class="btn login_btn">Entrar</button>
+                        <div class="d-flex justify-content-center login_container">
+                            <p class="btn login_btn"> <%= submit_tag 'Entrar', class:'botao_entrar' %> </p>
                         </div>
-                    </form>
+                    <%end %>
                 </div>
-
-                <div class="mt-4">
+                <div>
                     <div class="d-flex justify-content-center links">
                         Não possui uma conta? <%= link_to 'Cadastre-se', new_usuario_path(), class: 'ml-2' %>
                     </div>

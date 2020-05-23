@@ -38,6 +38,24 @@ class UsuariosController < ApplicationController
         redirect_to usuarios_path
     end
 
+    def logar
+        user = Usuario.find_by_login(params[:login])
+        if user && user.validou(params[:senha])
+            if params[:conectado]
+                cookies.permanent[:id] = user.id.to_s
+            else
+                cookies[:id] = user.id.to_s
+            end
+            redirect_to home_index_path
+        else
+            render 'login'
+        end 
+    end
+
+    def login
+        redirect_to home_index_path if cookies[:id] != nil
+    end
+
     private
 
     def procurar_id

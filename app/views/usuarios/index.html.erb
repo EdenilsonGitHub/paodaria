@@ -27,7 +27,7 @@
             <% end %>
             <% @usuarios.each do |usuario| %>
                 <tr class="<%= cycle("odd", "even") -%>">
-                    <td> <%= usuario.id %> </td>
+                    <td class="text-center"> <%= usuario.id %> </td>
                     <td> <%= link_to usuario.nome, usuario_path(usuario), class: 'link-azul' %> </td>
                     <td> <%= usuario.login %> </td>
                     <td> <%= usuario.email %> </td>
