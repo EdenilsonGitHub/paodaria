@@ -14,13 +14,29 @@
                 <div class="d-flex justify-content-center h-100">
                     <div class="searchbar">
                         <input class="search_input" type="text" name="" placeholder="Search...">
-                        <a href="#" class="search_icon"><%= fa_icon "search" %></i></a>
+                        <a href="#" class="search_icon"><%= fa_icon "search" %></a>
                     </div>
                 </div>
             </div>
         </li>
-        <li class="nav-list-item float-right">
-            <%= link_to 'Entrar', login_path(), class: 'nav-link' %>
-        </li>
+        <% if cookies[:id] == nil %>
+            <li class="nav-list-item float-right">
+                <%= link_to 'Entrar', login_path(), class: 'nav-link' %>
+            </li>
+        <% else %>
+            <li class="nav-list-item float-right" style="margin-right: 20px;">
+                <div class="btn-group" style="margin-top: 10px!important">
+                    <button type="button" class="btn btn-padrao width-50px"><%= @usuario_logado.nome %></button>
+                    <button type="button" class="btn btn-padrao dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown">
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item background-color-padrao color-padrao drop-first-list" href="#">Link 1</a>
+                        <a class="dropdown-item background-color-padrao color-padrao" href="#">Link 2</a>
+                        <%= link_to 'Sair', sair_path, class: 'dropdown-item background-color-padrao color-padrao drop-last-list'  %>
+                    </div>
+                </div>
+            </li>
+        <% end %>
     </ul>
 </nav>

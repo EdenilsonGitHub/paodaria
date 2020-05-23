@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :home, only: :index
 
-  post 'logar', to: 'usuarios#logar', as: :logar
-  get 'login', to: 'usuarios#login', as: :login
+  post 'logar', to: 'usuarios#logar'   , as: :logar
+  get  'login', to: 'usuarios#login'   , as: :login
+  get  'sair' , to: 'application#sair' , as: :sair
 
   root :to => 'home#index'
 
