@@ -22,6 +22,22 @@ class ProdutosController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        if @produto.update_attributes(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco))
+            redirect_to produtos_path
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @produto.destroy
+        redirect_to produtos_path
+    end
+
     private
 
     def procurar_id
