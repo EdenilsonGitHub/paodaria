@@ -61,6 +61,9 @@ gem 'pry'
 # Fonte awesome
 gem 'font-awesome-rails'
 
-# To use ActiveModel has_secure_password
+# Criptografia
 gem 'bcrypt-ruby'
 gem 'bcrypt'
+
+# Validações
+gem 'client_side_validations'
