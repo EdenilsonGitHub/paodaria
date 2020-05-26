@@ -1,53 +1,77 @@
-<%= form_for @produto do |u| %>
+<%= form_for @produto, validate:true do |u| %>
 
-    <div class="form-group">
-        <%= u.label :nome, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right float-right">
-            <%= u.text_field :nome, class: 'form-control focus-padrao' %>
+    <% if @produto.errors.any? %>
+        <div class="fundo_erro">
+            <h2 class="text-center">Revise as informações abaixo: </h2>
+            <p> </p>
+            <ul>
+            <% @produto.errors.full_messages.each do |msg| %>
+            <li><%= msg.humanize %></li>
+            <% end %>
+            </ul>
         </div>
-    </div>
+    <% end %>
 
-    <div class="form-group">
-        <%= u.label :descricao, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
-            <%= u.text_field :descricao, class: 'form-control focus-padrao' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= u.label :data_fabricacao, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
-            <%= u.date_field :data_fabricacao, class: 'form-control focus-padrao' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= u.label :data_validade, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
-            <%= u.date_field :data_validade, class: 'form-control focus-padrao' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= u.label :codigo_de_barras, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
-            <%= u.text_field :codigo_de_barras, class: 'form-control focus-padrao' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= u.label :quantidade, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
-            <%= u.text_field :quantidade, class: 'form-control focus-padrao' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= u.label :preco, class: 'col-xs-12 col-sm-4 col-md-4 col-lg-3 txt-alg-rig' %>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 float-right">
-            <%= u.text_field :preco, class: 'form-control focus-padrao' %>
-        </div>
-    </div>
+    <table style="width: 100%;">
+        <tbody style="width: 100%;">
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :nome, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :nome, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :descricao, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :descricao, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :data_fabricacao, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td style="padding-bottom: 6px!important;">
+                    <%= u.date_field :data_fabricacao, class: 'form-control focus-padrao', style: 'width: 100%;' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :data_validade, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td style="padding-bottom: 6px!important;">
+                    <%= u.date_field :data_validade, class: 'form-control focus-padrao', style: 'width: 100%;' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :codigo_de_barras, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :codigo_de_barras, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :quantidade, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :quantidade, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :preco, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :preco, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     <hr class="hr-system-100-por">
 
