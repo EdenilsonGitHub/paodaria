@@ -7,7 +7,8 @@ class CreateTableProduto < ActiveRecord::Migration[6.0]
       t.string   :codigo_de_barras
       t.integer  :quantidade
       t.date     :data_fabricacao
-      t.float    :preco      
+      t.float    :preco   
+      t.timestamps   
     end
   end
 end
