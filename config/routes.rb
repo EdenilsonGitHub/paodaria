@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :produtos
   resources :home, only: :index
+  resources :empresas
 
   post 'logar', to: 'usuarios#logar'   , as: :logar
   get  'login', to: 'usuarios#login'   , as: :login

@@ -1,0 +1,70 @@
+<%= form_for @empresa do |u| %>
+      
+    <table style="width: 100%;">
+        <tbody style="width: 100%;">        
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :nome, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :nome, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :razao_social, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td style="padding-bottom: 6px!important;">
+                    <%= u.text_field :razao_social, class: 'form-control focus-padrao', style: 'width: 100%;' %>
+                </td>
+            </tr>  
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :sigla, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td style="padding-bottom: 6px!important;">
+                    <%= u.text_field :sigla, class: 'form-control focus-padrao', style: 'width: 100%;' %>
+                </td>
+            </tr>                        
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :cnpj, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :cnpj, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :telefone, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :telefone, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :email, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td>
+                    <%= u.text_field :email, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="txt-alg-rig alinhamento-label-form">
+                    <%= u.label :ativo, class: 'txt-alg-rig', style: 'width: 80px' %>
+                </td>
+                <td style="padding-top: 1px!important;">
+                    <%= u.check_box :ativo, class: 'focus-check' %>
+                </td>
+            </tr>          
+        </tbody>
+    </table>
+
+    <hr class="hr-system-100-por">
+
+    <div class='wid-100p txt-alg-cen'>
+        <%= u.submit 'Cadastrar', class: 'txt-alg-cen btn botao-cor-padrao' %>
+    </div>
+
+<% end %>
