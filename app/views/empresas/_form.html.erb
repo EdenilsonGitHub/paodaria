@@ -3,58 +3,114 @@
     <table style="width: 100%;">
         <tbody style="width: 100%;">        
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :nome, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :nome, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td>
+                <td class="pb-6px">
                     <%= u.text_field :nome, class: 'form-control focus-padrao', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :razao_social, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :razao_social, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td style="padding-bottom: 6px!important;">
+                <td class="pb-6px">
                     <%= u.text_field :razao_social, class: 'form-control focus-padrao', style: 'width: 100%;' %>
                 </td>
             </tr>  
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :sigla, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :sigla, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td style="padding-bottom: 6px!important;">
+                <td class="pb-6px">
                     <%= u.text_field :sigla, class: 'form-control focus-padrao', style: 'width: 100%;' %>
                 </td>
             </tr>                        
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :cnpj, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :cnpj, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td>
+                <td class="pb-6px">
                     <%= u.text_field :cnpj, class: 'form-control focus-padrao', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :telefone, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :telefone, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td>
+                <td class="pb-6px">
                     <%= u.text_field :telefone, class: 'form-control focus-padrao', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :email, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :email, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td>
+                <td class="pb-6px">
                     <%= u.text_field :email, class: 'form-control focus-padrao', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
-                <td class="txt-alg-rig alinhamento-label-form">
-                    <%= u.label :ativo, class: 'txt-alg-rig', style: 'width: 80px' %>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :pais, class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td style="padding-top: 1px!important;">
+                <td class="pb-6px">
+                    <%= u.text_field :pais, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :estado, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :estado, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :cidade, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :cidade, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :rua, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :rua, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :numero, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :numero, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :complemento, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :complemento, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :cep, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :cep, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :ativo, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px pt-9px">
                     <%= u.check_box :ativo, class: 'focus-check' %>
                 </td>
             </tr>          
