@@ -35,8 +35,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_233104) do
     t.integer "quantidade"
     t.date "data_fabricacao"
     t.float "preco"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "table_usuarios", force: :cascade do |t|
