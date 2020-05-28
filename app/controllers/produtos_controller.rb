@@ -14,7 +14,7 @@ class ProdutosController < ApplicationController
     end
 
     def create
-        @produto = Produto.new(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco))
+        @produto = Produto.new(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco, :foto))
         if @produto.save
             redirect_to produtos_path
         else
@@ -26,7 +26,7 @@ class ProdutosController < ApplicationController
     end
 
     def update
-        if @produto.update_attributes(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco))
+        if @produto.update_attributes(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco, :foto))
             redirect_to produtos_path
         else
             render 'edit'

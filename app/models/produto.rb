@@ -1,5 +1,9 @@
 class Produto < ActiveRecord::Base
     self.table_name = 'table_produtos'
+    include Paperclip::Glue
+
+    has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
+    validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
     validates :nome, :descricao, :codigo_de_barras, :quantidade, :preco, presence: true
     validates :codigo_de_barras, :nome, uniqueness: true

@@ -70,8 +70,6 @@ gem 'client_side_validations'
 
 
 #others
-gem "paperclip"
+gem "paperclip", "~> 6.0.0"
 
-gem 'cocaine'
-
-# <div><%= image_tag @empresa.logo.url(:medium) %></div>
+gem 'cocaine', '0.3.2'
