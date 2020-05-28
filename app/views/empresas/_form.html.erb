@@ -25,6 +25,14 @@
                 <td class="pb-6px">
                     <%= u.text_field :sigla, class: 'form-control focus-padrao', style: 'width: 100%;' %>
                 </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :logo, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.file_field :logo, class: 'focus-padrao', style: 'width: 100%; font-size: 13px' %>
+                </td>
             </tr>                        
             <tr>
                 <td class="text-right alinhamento-label-form">
@@ -117,10 +125,10 @@
         </tbody>
     </table>
 
-    <hr class="hr-system-100-por">
+    <hr class="hr-system-100por">
 
-    <div class='wid-100p txt-alg-cen'>
-        <%= u.submit 'Cadastrar', class: 'txt-alg-cen btn botao-cor-padrao' %>
+    <div class='width-100por text-center'>
+        <%= u.submit 'Cadastrar', class: 'text-center btn botao-cor-padrao' %>
     </div>
 
 <% end %>

@@ -67,3 +67,11 @@ gem 'bcrypt'
 
 # Validações
 gem 'client_side_validations'
+
+
+#others
+gem "paperclip"
+
+gem 'cocaine'
+
+# <div><%= image_tag @empresa.logo.url(:medium) %></div>
