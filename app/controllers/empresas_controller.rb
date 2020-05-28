@@ -4,7 +4,7 @@ class EmpresasController < ApplicationController
     end
 
     def create
-        @empresa = Empresa.new(params.require(:empresa).permit(:nome, :cnpj, :telefone, :email, :ativo, :sigla, :razao_social))
+        @empresa = Empresa.new(params.require(:empresa).permit(:nome, :cnpj, :telefone, :email, :ativo, :sigla, :razao_social, :logo))
         if @empresa.save
             redirect_to empresas_path            
         else
