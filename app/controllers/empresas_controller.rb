@@ -1,4 +1,8 @@
 class EmpresasController < ApplicationController
+    def index
+        @empresas = Empresa.all 
+    end
+    
     def new
         @empresa = Empresa.new
     end
