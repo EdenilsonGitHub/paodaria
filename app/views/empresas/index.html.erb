@@ -1,0 +1,48 @@
+<div class="conteudo">
+    <div class="div-cabeca-index" style="text-align: center">
+        <div class="label-org-index"> Empresas </div>
+        <div class="botoes-org-index">
+            <%= link_to 'Novo registro', new_empresa_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="table_index" style="<%= 'margin-top: 13px!important' unless @empresas.blank? %>">
+        <% if @empresas.blank? %>
+            <tr>
+                <td colspan="2" class="nao_ha_registros">
+                    Não há registros
+                </td>
+            </tr>
+        <% else %>
+            <thead>
+                <tr>
+                    <th  class="tr_table_index text-center">ID</th>
+                    <th  class="tr_table_index text-center">Nome</th>
+                    <th  class="tr_table_index text-center">Razao social</th>
+                    <th  class="tr_table_index text-center">Sigla</th>
+                    <th  class="tr_table_index text-center">CNPJ</th>
+                    <th  class="tr_table_index text-center">Telefone</th>
+                    <th  class="tr_table_index text-center">E-mail</th>
+                    <th  class="tr_table_index text-center">Ativo</th>
+                    <th  class="tr_table_index text-center">Editar</th>
+                    <th  class="tr_table_index text-center">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @empresas.each do |empresa| %>
+                    <tr class="<%= cycle("odd", "even") -%>">
+                        <td class="text-center"> <%= empresa.id %> </td>
+                        <td> <%= link_to empresa.nome, empresa_path(empresa), class: 'link-azul' %> </td>
+                        <td> <%= empresa.razao_social %> </td>
+                        <td> <%= empresa.sigla %> </td>                        
+                        <td> <%= empresa.cnpj %> </td>
+                        <td> <%= empresa.telefone %> </td>
+                        <td> <%= empresa.email %> </td>
+                        <td> <%= empresa.ativo %> </td>
+                        <td class="text-center"><%= link_to(fa_icon('pencil'), edit_empresa_path(empresa), class:'pencil') %></td>
+                        <td class="text-center"><%= link_to(fa_icon('trash'), empresa_path(empresa), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        <% end %>
+    </table>
+</div>

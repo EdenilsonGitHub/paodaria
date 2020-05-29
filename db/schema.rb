@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_145925) do
     t.integer "quantidade"
     t.date "data_fabricacao"
     t.float "preco"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "foto_file_name"
     t.string "foto_content_type"
     t.integer "foto_file_size"
