@@ -29,7 +29,12 @@ class EmpresasController < ApplicationController
         else
             render 'edit'
         end
-    end    
+    end  
+    
+    def destroy
+        @empresa.destroy
+        redirect_to empresas_path
+    end
 
     private
 
