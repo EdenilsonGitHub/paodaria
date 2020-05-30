@@ -14,7 +14,8 @@ class UsuariosController < ApplicationController
     end
 
     def create
-        @usuario = Usuario.new(params.require(:usuario).permit(:nome, :senha, :senha_confirmation, :conta_id, :data_de_nascimento, :login, :email, :telefone, :admin, :gerente))
+        @usuario = Usuario.new(params.require(:usuario).permit(:nome, :senha, :senha_confirmation, :conta_id, :data_de_nascimento, :login, :email, 
+                               :telefone, :admin, :gerente, :empresa_id))
         if @usuario.save
             if @usuario_logado
                 redirect_to usuarios_path
@@ -30,7 +31,8 @@ class UsuariosController < ApplicationController
     end
 
     def update
-        if @usuario.update_attributes(params.require(:usuario).permit(:nome, :senha, :senha_confirmation, :conta_id, :data_de_nascimento, :login, :email, :telefone, :admin, :gerente))
+        if @usuario.update_attributes(params.require(:usuario).permit(:nome, :senha, :senha_confirmation, :conta_id, :data_de_nascimento, :login, :email, 
+                                      :telefone, :admin, :gerente, :empresa_id))
             redirect_to usuarios_path
         else
             render 'edit'

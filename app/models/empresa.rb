@@ -9,6 +9,8 @@ class Empresa < ActiveRecord::Base
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :cep, length: {is: 8}, allow_blank: false
 
+    has_many :usuarios
+    
     has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
