@@ -1,4 +1,16 @@
-<%= form_for @empresa, html: { multipart: true }  do |u| %>
+<%= form_for @empresa, validate:true, html: { multipart: true }  do |u| %>
+
+    <% if @empresa.errors.any? %>
+        <div class="fundo_erro">
+            <h2 class="text-center">Revise as informações abaixo: </h2>
+            <p> </p>
+            <ul>
+            <% @empresa.errors.full_messages.each do |msg| %>
+            <li><%= msg.humanize %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
       
     <table style="width: 100%;">
         <tbody style="width: 100%;">        
