@@ -1,4 +1,6 @@
 class EmpresasController < ApplicationController
+    before_action :procurar_id, only: [:show, :edit, :update, :destroy]
+
     def index
         @empresas = Empresa.all 
     end
@@ -15,4 +17,11 @@ class EmpresasController < ApplicationController
             render action: 'new'
         end
     end
+
+    private
+
+    def procurar_id
+        @empresa = Empresa.find_by_id(params[:id])
+    end
+
 end
