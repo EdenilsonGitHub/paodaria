@@ -30,9 +30,13 @@
                 <td class="td-index-direita"> <%= @usuario.telefone %> </td>
             </tr>
             <tr>
+                <td class="td-index-esquerda"> Empresa: </td>
+                <td class="td-index-direita"> <%= @usuario.empresa.nome%> </td>
+            </tr>            
+            <tr>        
                 <td class="td-index-esquerda"> Gerente: </td>
                 <td class="td-index-direita"> <%= @usuario.gerente ? 'sim' : 'não'  %> </td>
-            </tr>
+            </tr>            
             <tr>
                 <td class="td-index-esquerda"> Administrador: </td>
                 <td class="td-index-direita"> <%= @usuario.admin ? 'sim' : 'não' %> </td>
