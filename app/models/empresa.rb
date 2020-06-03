@@ -11,7 +11,7 @@ class Empresa < ActiveRecord::Base
 
     has_many :usuarios
     
-    has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }
+    has_attached_file :logo, styles: { normal: "300x300>" }
     validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
 end 

@@ -1,0 +1,39 @@
+<div class="container" style="overflow: auto; text-align: center;">
+    <% if @produtos.blank? %>
+        <div class="nao_ha_registros">
+            Não há produtos disponíveis
+        </div>
+    <% else %>
+        <% @produtos.each do |produto| %>
+            <div class="product-grid3" style="width: 32%">
+                <div class="product-image3">
+                    <a href="#">
+                        <%= image_tag produto.foto.url(:loja), class: 'pic-1', style: 'height: 250px; width: 200px' %>
+                        <%= image_tag produto.foto.url(:loja), class: 'pic-2', style: 'height: 250px; width: 200px' %>
+                    </a>
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <span class="product-new-label">Novo</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="title">
+                        <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %>
+                    </h3>
+                    <div class="price">
+                        R$<%= produto.preco %>
+                        <span>R$75.00</span>
+                    </div>
+                    <ul class="rating" style="width: 45%; float: right">
+                        <li class="fa fa-star" ></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star disable"></li>
+                        <li class="fa fa-star disable"></li>
+                    </ul>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
