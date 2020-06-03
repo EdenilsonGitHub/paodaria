@@ -38,6 +38,10 @@ class ProdutosController < ApplicationController
         redirect_to produtos_path
     end
 
+    def loja
+        @produtos = Produto.all
+    end
+
     private
 
     def procurar_id
