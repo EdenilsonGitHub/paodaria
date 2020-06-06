@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :empresas
   resources :produtos
   resources :usuarios
+  resources :ingredientes
+
   
   resources :home, only: :index
 

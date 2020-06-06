@@ -1,0 +1,40 @@
+<div class="conteudo min-height-index-padrao-600px">
+    <div class="div-cabeca-index" style="text-align: center">
+        <div class="label-org-index"> Ingredientes </div>
+        <div class="botoes-org-index">
+            <%= link_to 'Novo registro', new_ingrediente_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="table_index" style="<%= 'margin-top: 13px!important' unless @ingredientes.blank? %>">
+        <% if @ingredientes.blank? %>
+            <tr>
+                <td colspan="2" class="nao_ha_registros">
+                    Não há registros
+                </td>
+            </tr>
+        <% else %>
+            <thead>
+                <tr>
+                    <th  class="tr_table_index text-center">ID</th>
+                    <th  class="tr_table_index text-center">Nome</th>
+                    <th  class="tr_table_index text-center">Alergicos</th>
+                    <th  class="tr_table_index text-center">Observação</th>
+                    <th  class="tr_table_index text-center">Editar</th>
+                    <th  class="tr_table_index text-center">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @ingredientes.each do |ingrediente| %>
+                    <tr class="<%= cycle("odd", "even") -%>">
+                        <td class="text-center"> <%= ingrediente.id %> </td>
+                        <td> <%= link_to ingrediente.nome, ingrediente_path(ingrediente), class: 'link-azul' %> </td>
+                        <td> <%= ingrediente.alergicos %> </td>                        
+                        <td> <%= ingrediente.observacao %> </td>                                                
+                        <td class="text-center"><%= link_to(fa_icon('pencil'), edit_ingrediente_path(ingrediente), class:'pencil') %></td>
+                        <td class="text-center"><%= link_to(fa_icon('trash'), ingrediente_path(ingrediente), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        <% end %>
+    </table>
+</div>
