@@ -1,11 +1,7 @@
 class IngredientesController < ApplicationController
-    before_action :procurar_id, only: [:show, :edit, :update, :destroy]
 
-     def index
+    def index
         @ingredientes = Ingrediente.all
-    end
-
-    def show
     end
 
     def new
