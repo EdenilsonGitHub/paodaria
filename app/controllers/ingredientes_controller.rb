@@ -16,4 +16,9 @@ class IngredientesController < ApplicationController
             render action: 'new'
         end
     end
+
+    def destroy
+        @ingrediente.destroy
+        redirect_to ingredientes_path
+    end    
 end
