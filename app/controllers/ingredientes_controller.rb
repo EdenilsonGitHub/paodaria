@@ -8,6 +8,9 @@ class IngredientesController < ApplicationController
         @ingrediente = Ingrediente.new
     end
 
+    def edit
+    end
+
     def create
         @ingrediente = Ingrediente.new(params.require(:ingrediente).permit(:nome, :alergicos, :observacao))
         if @ingrediente.save
