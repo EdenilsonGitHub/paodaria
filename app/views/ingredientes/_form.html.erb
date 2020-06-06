@@ -1,0 +1,50 @@
+<%= form_for @ingrediente, validate:true, html: { multipart: true }  do |u| %>
+
+    <% if @ingrediente.errors.any? %>
+        <div class="fundo_erro">
+            <h2 class="text-center">Revise as informações abaixo: </h2>
+            <p> </p>
+            <ul>
+            <% @ingrediente.errors.full_messages.each do |msg| %>
+            <li><%= msg.humanize %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <table style="width: 100%;">
+        <tbody style="width: 100%;">
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :nome, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :nome, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :observacao, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :observacao, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>           
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :alergicos, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px pt-9px">
+                    <%= u.check_box :alergicos, class: 'focus-check' %>
+                </td>
+            </tr>            
+        </tbody>
+    </table>
+
+    <hr class="hr-system-100por">
+
+    <div class='width-100por text-center'>
+        <%= u.submit 'Cadastrar', class: 'text-center btn botao-cor-padrao' %>
+    </div>
+
+<% end %>
