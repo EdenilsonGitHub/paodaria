@@ -1,7 +1,11 @@
 class IngredientesController < ApplicationController
+    before_action :procurar_id, only: [:show, :edit, :update, :destroy]
 
     def index
         @ingredientes = Ingrediente.all
+    end
+
+    def show
     end
 
     def new
@@ -27,9 +31,15 @@ class IngredientesController < ApplicationController
             render action: 'new'
         end
     end
-
+  
     def destroy
         @ingrediente.destroy
         redirect_to ingredientes_path
     end    
+    
+    private
+
+    def procurar_id
+        @ingrediente = Ingrediente.find_by_id(params[:id])
+    end
 end

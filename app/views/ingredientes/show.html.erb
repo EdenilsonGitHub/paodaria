@@ -1,0 +1,26 @@
+<div class="conteudo">
+    <div class="div-cabeca">
+        <div class="label-org"> Ingrediente (<%= @ingrediente.nome %>) </div> 
+        <div class="botoes-org">
+            <%= link_to 'Excluir', ingrediente_path(@ingrediente.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
+            <%= link_to 'Editar', edit_ingrediente_path(@ingrediente.id), class:'btn btn-light' %>
+            <%= link_to 'Novo registro', new_ingrediente_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="tabela-lado-lado">
+        <tbody>
+            <tr>
+                <td class="td-index-esquerda"> Nome: </td>
+                <td class="td-index-direita"> <%= @ingrediente.nome %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Observacao: </td>
+                <td class="td-index-direita"> <%= @ingrediente.observacao %> </td>
+            </tr>           
+            <tr>
+                <td class="td-index-esquerda"> Alergicos: </td>
+                <td class="td-index-direita"> <%= @ingrediente.alergicos ? 'sim' : 'não' %> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
