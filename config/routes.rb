@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :produtos
   resources :usuarios
   resources :ingredientes
+  resources :parceiros
 
   
   resources :home, only: :index
