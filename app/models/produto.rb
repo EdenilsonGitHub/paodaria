@@ -1,7 +1,7 @@
 class Produto < ActiveRecord::Base
-    self.table_name = 'table_produtos'
+    self.table_name = 'prod'
 
-    has_many :table_rel_prod_ing, class_name: 'Relproding', foreign_key: :produto_id
+    has_many :rel_prod_ing, class_name: 'Relproding', foreign_key: :produto_id
 
     include Paperclip::Glue
 

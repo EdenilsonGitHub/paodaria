@@ -1,6 +1,6 @@
 class CreateTableEmpresa < ActiveRecord::Migration[6.0]
   def change
-    create_table :table_empresas do |t|
+    create_table :emp do |t|
       t.string  :nome
       t.string  :cnpj
       t.string  :telefone

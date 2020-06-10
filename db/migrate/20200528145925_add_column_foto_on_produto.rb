@@ -1,9 +1,9 @@
 class AddColumnFotoOnProduto < ActiveRecord::Migration[6.0]
   def up
-    add_attachment :table_produtos, :foto
+    add_attachment :prod, :foto
   end
 
   def down
-    remove_attachment :table_produtos, :foto
+    remove_attachment :prod, :foto
   end
 end

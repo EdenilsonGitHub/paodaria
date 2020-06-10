@@ -74,8 +74,12 @@
                 <td class="text-right alinhamento-label-form">
                     <%= u.label "Empresa", class: 'text-right', style: 'width: 170px' %>
                 </td>
-                <td class="pb-6px">
-                    <%= u.select(:empresa_id, Empresa.all.collect {|p| [ p.nome, p.id ] }, {include_blank: true}, class: 'form-control focus-padrao', style: 'width: 100%;')%>                  
+                <td class="<%= 'pb-6px' if Empresa.any? %>">
+                    <% if Empresa.any? %>
+                        <%= u.select(:empresa_id, Empresa.all.collect {|p| [ p.nome, p.id ] }, {include_blank: true}, class: 'form-control focus-padrao', style: 'width: 100%;')%>
+                    <% else %>
+                        <div style="color: red">Nenhuma empresa foi cadastrada.</div>
+                    <% end %>
                 </td>
             </tr>                       
             <tr>

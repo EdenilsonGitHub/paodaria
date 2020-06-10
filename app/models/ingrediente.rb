@@ -1,7 +1,7 @@
 class Ingrediente < ActiveRecord::Base
-    self.table_name = 'table_ingredientes'
+    self.table_name = 'ing'
 
-    has_many :table_rel_prod_ing, class_name: 'Relproding', foreign_key: :ingrediente_id
+    has_many :rel_prod_ing, class_name: 'Relproding', foreign_key: :ingrediente_id
 
     validates :nome, :alergicos, :observacao, presence: true
     validates :nome, uniqueness: true
