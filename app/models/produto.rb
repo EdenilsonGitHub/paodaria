@@ -1,5 +1,8 @@
 class Produto < ActiveRecord::Base
     self.table_name = 'table_produtos'
+
+    has_many :table_rel_prod_ing, class_name: 'Relproding', foreign_key: :produto_id
+
     include Paperclip::Glue
 
     has_attached_file :foto, styles: { normal: "300x300>", loja: "250x200>" }

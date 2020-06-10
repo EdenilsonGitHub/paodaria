@@ -1,5 +1,7 @@
 class Ingrediente < ActiveRecord::Base
     self.table_name = 'table_ingredientes'
+
+    has_many :table_rel_prod_ing
     
     validates :nome, :alergicos, :observacao, presence: true
     validates :nome, uniqueness: true
