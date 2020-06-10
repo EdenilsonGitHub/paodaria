@@ -1,5 +1,9 @@
 class ParceirosController < ApplicationController
-    before_action :procurar_id, only: [:show, :edit, :update, :destroy]
+    before_action :procurar_id, only: [:edit, :update]
+    
+    def index
+        @parceiros = Parceiro.all 
+    end    
     
     def new
         @parceiro = Parceiro.new

@@ -1,0 +1,44 @@
+<div class="conteudo  min-height-index-padrao-600px">
+    <div class="div-cabeca-index" style="text-align: center">
+        <div class="label-org-index"> Parceiros </div>
+        <div class="botoes-org-index">
+            <%= link_to 'Novo registro', new_parceiro_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="table_index" style="<%= 'margin-top: 13px!important' unless @parceiros.blank? %>">
+        <% if @parceiros.blank? %>
+            <tr>
+                <td colspan="2" class="nao_ha_registros">
+                    Não há registros
+                </td>
+            </tr>
+        <% else %>
+            <thead>
+                <tr>
+                    <th  class="tr_table_index text-center">ID</th>
+                    <th  class="tr_table_index text-center">Nome</th>
+                    <th  class="tr_table_index text-center">Serviço prestado</th>            
+                    <th  class="tr_table_index text-center">CNPJ</th>
+                    <th  class="tr_table_index text-center">E-mail</th>
+                    <th  class="tr_table_index text-center">Telefone</th>                                        
+                    <th  class="tr_table_index text-center">Editar</th>
+                    <th  class="tr_table_index text-center">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @parceiros.each do |parceiro| %>
+                    <tr class="<%= cycle("odd", "even") -%>">
+                        <td class="text-center"> <%= parceiro.id %> </td>
+                        <td> <%= link_to parceiro.nome, parceiro_path(parceiro), class: 'link-azul' %> </td>
+                        <td> <%= parceiro.servico_prestado %> </td>                        
+                        <td> <%= parceiro.cnpj %> </td>
+                        <td> <%= parceiro.email %> </td>
+                        <td> <%= parceiro.telefone %> </td>                                                
+                        <td class="text-center"><%= link_to(fa_icon('pencil'), edit_parceiro_path(parceiro), class:'pencil') %></td>
+                        <td class="text-center"><%= link_to(fa_icon('trash'), parceiro_path(parceiro), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        <% end %>
+    </table>
+</div>
