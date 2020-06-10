@@ -1,0 +1,38 @@
+<div class="conteudo show-parceiros">
+    <div class="div-cabeca">
+        <div class="label-org"> Parceiros (<%= @parceiro.nome %>) </div>
+        <div class="botoes-org">
+            <%= link_to 'Excluir', parceiro_path(@parceiro.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
+            <%= link_to 'Editar', edit_parceiro_path(@parceiro.id), class:'btn btn-light' %>
+            <%= link_to 'Novo registro', new_parceiro_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="tabela-lado-lado">
+        <tbody>
+            <tr>
+                <td class="td-index-esquerda"> Logo: </td>
+                <td class="td-index-direita"> <%= image_tag @parceiro.logo(:normal) %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Nome: </td>
+                <td class="td-index-direita"> <%= @parceiro.nome %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> CNPJ: </td>
+                <td class="td-index-direita"> <%= @parceiro.cnpj %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> E-mail: </td>
+                <td class="td-index-direita"> <%= @parceiro.email %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Telefone: </td>
+                <td class="td-index-direita"> <%= @parceiro.telefone %> </td>
+            </tr>
+            <tr>
+                <td class="td-index-esquerda"> Serviço Prestado: </td>
+                <td class="td-index-direita"> <%= @parceiro.servico_prestado %> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
