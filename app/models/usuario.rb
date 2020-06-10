@@ -1,7 +1,7 @@
 # encoding: UTF-8
 # require 'digest'
 class Usuario < ActiveRecord::Base
-    self.table_name = 'table_usuarios'
+    self.table_name = 'usr'
 
     before_save :criptografa_senha
 

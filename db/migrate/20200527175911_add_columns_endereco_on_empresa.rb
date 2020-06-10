@@ -1,21 +1,21 @@
 class AddColumnsEnderecoOnEmpresa < ActiveRecord::Migration[6.0]
   def up
-    add_column :table_empresas, :pais, :string
-    add_column :table_empresas, :estado, :string
-    add_column :table_empresas, :cidade, :string
-    add_column :table_empresas, :rua, :string
-    add_column :table_empresas, :numero, :string
-    add_column :table_empresas, :complemento, :string
-    add_column :table_empresas, :cep, :string
+    add_column :emp, :pais, :string
+    add_column :emp, :estado, :string
+    add_column :emp, :cidade, :string
+    add_column :emp, :rua, :string
+    add_column :emp, :numero, :string
+    add_column :emp, :complemento, :string
+    add_column :emp, :cep, :string
   end
 
   def down
-    remove_column :table_empresas, :pais
-    remove_column :table_empresas, :estado
-    remove_column :table_empresas, :cidade
-    remove_column :table_empresas, :rua
-    remove_column :table_empresas, :numero
-    remove_column :table_empresas, :complemento
-    remove_column :table_empresas, :cep
+    remove_column :emp, :pais
+    remove_column :emp, :estado
+    remove_column :emp, :cidade
+    remove_column :emp, :rua
+    remove_column :emp, :numero
+    remove_column :emp, :complemento
+    remove_column :emp, :cep
   end
 end

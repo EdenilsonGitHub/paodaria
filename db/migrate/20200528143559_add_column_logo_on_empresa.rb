@@ -1,9 +1,9 @@
 class AddColumnLogoOnEmpresa < ActiveRecord::Migration[6.0]
   def up
-    add_attachment :table_empresas, :logo
+    add_attachment :emp, :logo
   end
 
   def down
-    remove_attachment :table_empresas, :logo
+    remove_attachment :emp, :logo
   end
 end
