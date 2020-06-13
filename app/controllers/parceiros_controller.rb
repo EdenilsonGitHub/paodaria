@@ -20,6 +20,9 @@ class ParceirosController < ApplicationController
             render action: 'new'
         end
     end
+    
+    def edit
+    end    
 
     def update 
         if @parceiro.update_attributes(params.require(:parceiro).permit(:nome, :cnpj, :email, :telefone, :logo, :servico_prestado))
