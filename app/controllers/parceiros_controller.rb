@@ -20,6 +20,14 @@ class ParceirosController < ApplicationController
             render action: 'new'
         end
     end
+
+    def update 
+        if @parceiro.update_attributes(params.require(:parceiro).permit(:nome, :cnpj, :email, :telefone, :logo, :servico_prestado))
+            redirect_to parceiros_path
+        else
+            render 'edit'
+        end            
+    end
     
 
     def destroy
