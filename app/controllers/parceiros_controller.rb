@@ -1,10 +1,13 @@
 class ParceirosController < ApplicationController
-    before_action :procurar_id, only: [:show, :edit, :update]
+    before_action :procurar_id, only: [:show, :edit, :update, :destroy]
     
     def index
         @parceiros = Parceiro.all 
     end    
     
+    def show
+    end
+
     def new
         @parceiro = Parceiro.new
     end
@@ -18,8 +21,11 @@ class ParceirosController < ApplicationController
         end
     end
     
-    def show
-    end
+
+    def destroy
+        @parceiro.destroy
+        redirect_to parceiros_path
+    end    
 
     private
 
