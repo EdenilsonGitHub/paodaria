@@ -1,7 +1,7 @@
 <div class="div-conteudo-fundo">
     <div class="div-lateral">
-        <button class="btn-lateral lateral-first">
-            Exemplo 1
+        <button class="btn-lateral lateral-first" id="renderizar_estoque_produto" onclick="renderizar_produto()">
+            Produtos
         </button>
         <button class="btn-lateral">
             Exemplo 2
@@ -22,10 +22,17 @@
             <div class="botoes-org-index">
             </div>
         </div>
-        <div class="width-100por">
+        <div class="width-100por" id="conteudo_dashboard">
             <div class="selecione_a_esquerda">
                 Selecione uma opção à esquerda
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+function renderizar_produto() {
+    $("#conteudo_dashboard").html("<%= escape_javascript(render('estoque_produto')) %>");
+}
+</script>
