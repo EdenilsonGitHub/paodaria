@@ -1,0 +1,24 @@
+<table class="tabela-lado-lado">
+    <tbody>
+        <tr>
+            <td>
+                <button id="hide_and_show_ing_on_prod" class="btn btn-padrao">Adicionar novo ingrediente</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= form_tag(add_ing_prod_path) do %>
+                    <%= select_tag "Ingrediente", options_from_collection_for_select(@ingredientes, "id", "nome"), class: 'btn btn-primary' %>
+                    <%= submit_tag 'Add', class:'btn btn-success' %>
+                <%end %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+$("#hide_and_show_ing_on_prod").click(function(){
+    $("#ingrediente_select_toggle").show();
+    $("#btn_add").show();
+});
+</script>

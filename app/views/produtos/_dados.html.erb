@@ -1,0 +1,36 @@
+<table class="tabela-lado-lado">
+    <tbody>
+        <tr>
+            <td class="td-index-esquerda"> Foto: </td>
+            <td class="td-index-direita"> <%= image_tag @produto.foto.url(:normal) %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Nome: </td>
+            <td class="td-index-direita"> <%= @produto.nome %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Descrição: </td>
+            <td class="td-index-direita"> <%= @produto.descricao %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Data de fabricação: </td>
+            <td class="td-index-direita"> <%= @produto.data_fabricacao.strftime("%m/%d/%Y") %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Data de validade: </td>
+            <td class="td-index-direita"> <%= @produto.data_validade.strftime("%m/%d/%Y") %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Código de barras: </td>
+            <td class="td-index-direita"> <%= @produto.codigo_de_barras %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Quantidade: </td>
+            <td class="td-index-direita"> <%= @produto.quantidade  %> </td>
+        </tr>
+        <tr>
+            <td class="td-index-esquerda"> Preço: </td>
+            <td class="td-index-direita"> <%= @produto.preco %> </td>
+        </tr>
+    </tbody>
+</table>

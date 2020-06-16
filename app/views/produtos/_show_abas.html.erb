@@ -1,0 +1,34 @@
+<div class="tab_container ml-15px">
+    <ul class="tabs">
+        <li id="produto_dados" class="tab-link current" onclick="current_dados()">
+            <%= 'Dados' %>
+        </li>
+    </ul>
+</div>
+<div class="tab_container">
+    <ul class="tabs">
+        <li id="produto_ingredientes" class="tab-link" onclick="current_ingredientes()">
+            <%= 'Ingredientes' %>
+        </li>
+    </ul>
+</div>
+
+<script>
+
+$(document).ready(function(){
+    $('#conteudo_show_prod').html( "<%= escape_javascript(render( :partial => 'dados' )) %>" )
+});
+
+function current_dados() {
+    $('#produto_dados').addClass('current')
+    $('#produto_ingredientes').removeClass('current');
+    $('#conteudo_show_prod').html( "<%= escape_javascript(render( :partial => 'dados' )) %>" )
+}
+
+function current_ingredientes() {
+    $('#produto_ingredientes').addClass('current')
+    $('#produto_dados').removeClass('current');
+    $('#conteudo_show_prod').html( "<%= escape_javascript(render( :partial => 'ingredientes' )) %>" )
+}
+
+</script>
