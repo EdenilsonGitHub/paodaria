@@ -1,6 +1,7 @@
 class ProdutosController < ApplicationController
 
-    before_action :procurar_id, only: [:show, :edit, :update, :destroy]
+    before_action :procurar_id_prod,      only: [:show, :edit, :update, :destroy]
+    before_action :carregar_ingredientes, only: [:show]
 
     def index
         @produtos = Produto.all
@@ -44,8 +45,12 @@ class ProdutosController < ApplicationController
 
     private
 
-    def procurar_id
+    def procurar_id_prod
         @produto = Produto.find_by_id(params[:id])
+    end
+
+    def carregar_ingredientes
+        @ingredientes = Ingrediente.all
     end
 
 end

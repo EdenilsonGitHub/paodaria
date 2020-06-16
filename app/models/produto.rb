@@ -2,6 +2,7 @@ class Produto < ActiveRecord::Base
     self.table_name = 'prod'
 
     has_many :rel_prod_ing, class_name: 'Relproding', foreign_key: :produto_id
+    has_many :ingredientes, through: :rel_prod_ing
 
     include Paperclip::Glue
 

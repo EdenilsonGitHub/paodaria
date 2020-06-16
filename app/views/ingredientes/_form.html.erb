@@ -16,28 +16,28 @@
         <tbody style="width: 100%;">
             <tr>
                 <td class="text-right alinhamento-label-form">
-                    <%= u.label :nome, class: 'text-right', style: 'width: 170px' %>
+                    <%= u.label :nome, class: 'text-right width-170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :nome, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :nome, class: 'form-control focus-padrao width-100por' %>
                 </td>
             </tr>
             <tr>
                 <td class="text-right alinhamento-label-form">
-                    <%= u.label :observacao, class: 'text-right', style: 'width: 170px' %>
-                </td>
-                <td class="pb-6px">
-                    <%= u.text_field :observacao, class: 'form-control focus-padrao', style: 'width: 100%' %>
-                </td>
-            </tr>           
-            <tr>
-                <td class="text-right alinhamento-label-form">
-                    <%= u.label :alergicos, class: 'text-right', style: 'width: 170px' %>
+                    <%= u.label 'Alérgicos', class: 'text-right width-170px'%>
                 </td>
                 <td class="pb-6px pt-9px">
-                    <%= u.check_box :alergicos, class: 'focus-check' %>
+                    <%= u.check_box :alergicos, class: 'focus-check', id: 'check_box_alergicos' %>
                 </td>
-            </tr>            
+            </tr> 
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :observacao, class: 'text-right width-170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :observacao, class: 'form-control focus-padrao alergicos_field', id: 'text_field_alergicos' %>
+                </td>
+            </tr>                
         </tbody>
     </table>
 
@@ -48,3 +48,19 @@
     </div>
 
 <% end %>
+
+<script>
+$(document).ready(function() {
+
+    $('#check_box_alergicos').change(function() {
+        if(this.checked) {
+            $('#text_field_alergicos').css('pointer-events', 'all');
+            $('#text_field_alergicos').css('background-color', 'white');
+        }else {
+            $('#text_field_alergicos').css('pointer-events', 'none');
+            $('#text_field_alergicos').css('background-color', '#D5DBD5');
+            $('#text_field_alergicos').val('')
+        }        
+    });
+});
+</script>

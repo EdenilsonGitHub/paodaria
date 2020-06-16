@@ -1,5 +1,5 @@
 class Parceiro < ActiveRecord::Base
-    self.table_name = 'table_parceiros'
+    self.table_name = 'parceiro'
     
     validates :nome, :cnpj, :email, :servico_prestado, presence: true
     validates :nome, :cnpj, :email, uniqueness: true
