@@ -23,6 +23,9 @@
                     <th  class="tr_table_index text-center">Código de barras</th>
                     <th  class="tr_table_index text-center">Quantidade</th>
                     <th  class="tr_table_index text-center">Preço</th>
+                    <th  class="tr_table_index text-center">Estrelas</th>
+                    <th  class="tr_table_index text-center">Promoção</th>
+                    <th  class="tr_table_index text-center">Valor da promoção</th>
                     <th  class="tr_table_index text-center">Editar</th>
                     <th  class="tr_table_index text-center">Excluir</th>
                 </tr>
@@ -38,6 +41,9 @@
                         <td> <%= produto.codigo_de_barras %> </td>
                         <td> <%= produto.quantidade %> </td>
                         <td> <%= produto.preco %> </td>
+                        <td> <%= produto.estrela %> </td>
+                        <td> <%= produto.promocao %> </td>
+                        <td> <%= produto.valor_promocao %> </td>
                         <td class="text-center"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
                         <td class="text-center"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
