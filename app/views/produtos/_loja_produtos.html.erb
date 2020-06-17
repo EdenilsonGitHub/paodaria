@@ -15,7 +15,9 @@
                 <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
             </ul>
-            <span class="product-new-label">Novo</span>
+            <% if ((Time.now.to_f * 1000).floor - (produto.created_at.to_f * 1000).floor) <= 86400000 %>
+                <span class="product-new-label">Novo</span>
+            <% end %>
         </div>
         <div class="product-content">
             <h3 class="title">
