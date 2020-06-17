@@ -3,8 +3,8 @@
         <button class="btn-lateral lateral-first" id="renderizar_estoque_produto" onclick="renderizar_produto()">
             Produtos
         </button>
-        <button class="btn-lateral">
-            Exemplo 2
+        <button class="btn-lateral" id="renderizar_funcionario" onclick="renderizar_funcionario()">
+            Funcionários
         </button>
         <button class="btn-lateral">
             Exemplo 3
@@ -34,5 +34,9 @@
 
 function renderizar_produto() {
     $("#conteudo_dashboard").html("<%= escape_javascript(render('estoque_produto')) %>");
+}
+
+function renderizar_funcionario() {
+    $("#conteudo_dashboard").html("<%= escape_javascript(render('empresas_funcionarios')) %>");
 }
 </script>

@@ -18,11 +18,15 @@
                     <th  class="tr_table_index text-center">ID</th>
                     <th  class="tr_table_index text-center">Nome</th>
                     <th  class="tr_table_index text-center">Descricao</th>
+                    <th  class="tr_table_index text-center">Data de Cadastro</th>>
                     <th  class="tr_table_index text-center">Data de fabricação</th>
                     <th  class="tr_table_index text-center">Data de validade</th>
                     <th  class="tr_table_index text-center">Código de barras</th>
                     <th  class="tr_table_index text-center">Quantidade</th>
                     <th  class="tr_table_index text-center">Preço</th>
+                    <th  class="tr_table_index text-center">Estrelas</th>
+                    <th  class="tr_table_index text-center">Promoção</th>
+                    <th  class="tr_table_index text-center">Valor da promoção</th>
                     <th  class="tr_table_index text-center">Editar</th>
                     <th  class="tr_table_index text-center">Excluir</th>
                 </tr>
@@ -33,11 +37,15 @@
                         <td class="text-center"> <%= produto.id %> </td>
                         <td> <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %> </td>
                         <td> <%= produto.descricao %> </td>
-                        <td> <%= produto.data_fabricacao.strftime("%m/%d/%Y") %> </td>
-                        <td> <%= produto.data_validade.strftime("%m/%d/%Y") %> </td>
+                        <td> <%= produto.created_at.strftime("%d/%m/%Y")  %> </td>
+                        <td> <%= produto.data_fabricacao.strftime("%d/%m/%Y") %> </td>
+                        <td> <%= produto.data_validade.strftime("%d/%m/%Y") %> </td>
                         <td> <%= produto.codigo_de_barras %> </td>
                         <td> <%= produto.quantidade %> </td>
                         <td> <%= produto.preco %> </td>
+                        <td> <%= produto.estrela %> </td>
+                        <td> <%= produto.promocao %> </td>
+                        <td> <%= produto.valor_promocao %> </td>
                         <td class="text-center"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
                         <td class="text-center"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>

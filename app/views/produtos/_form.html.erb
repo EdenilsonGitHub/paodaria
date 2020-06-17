@@ -78,6 +78,30 @@
                     <%= u.text_field :preco, class: 'form-control focus-padrao', style: 'width: 100%' %>
                 </td>
             </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :estrela, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :estrela, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :promocao, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px pt-9px">
+                    <%= u.check_box :promocao, class: 'focus-check' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :valor_promocao, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :valor_promocao, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
         </tbody>
     </table>
 
