@@ -1,11 +1,15 @@
 <div class="conteudo show-produtos">
     <div class="div-cabeca">
         <div class="label-org"> Produto (<%= @produto.nome %>) </div>
-        <div class="botoes-org">
-            <%= link_to 'Excluir', produto_path(@produto.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
-            <%= link_to 'Editar', edit_produto_path(@produto.id), class:'btn btn-light' %>
-            <%= link_to 'Novo registro', new_produto_path, class:'btn btn-success' %>
-        </div>
+        <% if @usuario_logado != nil %>
+            <% if @usuario_logado.admin || @usuario_logado.gerente %>
+                <div class="botoes-org">
+                    <%= link_to 'Excluir', produto_path(@produto.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
+                    <%= link_to 'Editar', edit_produto_path(@produto.id), class:'btn btn-light' %>
+                    <%= link_to 'Novo registro', new_produto_path, class:'btn btn-success' %>
+                </div>
+            <% end %>
+        <% end %>
     </div>
     <div id="show_abas_volume">
         <%= render('show_abas') %>
