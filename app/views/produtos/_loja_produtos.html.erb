@@ -31,8 +31,12 @@
                 <li class="fa fa-star disable"></li>
             </ul>
             <div class="price">
-                R$<%= produto.preco %>
-                <span>R$75.00</span>
+                <% if produto.promocao %>
+                    R$<%= produto.valor_promocao %>
+                    <span>R$<%= produto.preco %></span>
+                <% else %>
+                    R$<%= produto.preco %>
+                <% end %>
             </div>
         </div>
     </div>
