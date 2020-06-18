@@ -91,7 +91,7 @@
                     <%= u.label :promocao, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px pt-9px">
-                    <%= u.check_box :promocao, class: 'focus-check' %>
+                    <%= u.check_box :promocao, class: 'focus-check', id: 'check_box_promocao' %>
                 </td>
             </tr>
             <tr>
@@ -99,7 +99,7 @@
                     <%= u.label :valor_promocao, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :valor_promocao, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :valor_promocao, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao' %>
                 </td>
             </tr>
         </tbody>
@@ -112,3 +112,19 @@
     </div>
 
 <% end %>
+
+<script>
+$(document).ready(function() {
+
+    $('#check_box_promocao').change(function() {
+        if(this.checked) {
+            $('#text_field_promocao').css('pointer-events', 'all');
+            $('#text_field_promocao').css('background-color', 'white');
+        }else {
+            $('#text_field_promocao').css('pointer-events', 'none');
+            $('#text_field_promocao').css('background-color', '#D5DBD5');
+            $('#text_field_promocao').val('')
+        }        
+    });
+});
+</script>
