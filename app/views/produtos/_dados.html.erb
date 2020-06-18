@@ -24,10 +24,14 @@
             <td class="td-index-esquerda"> Código de barras: </td>
             <td class="td-index-direita"> <%= @produto.codigo_de_barras %> </td>
         </tr>
-        <tr>
-            <td class="td-index-esquerda"> Quantidade: </td>
-            <td class="td-index-direita"> <%= @produto.quantidade  %> </td>
-        </tr>
+        <% if @usuario_logado != nil %>
+            <% if @usuario_logado.admin || @usuario_logado.gerente %>
+            <tr>
+                <td class="td-index-esquerda"> Quantidade: </td>
+                <td class="td-index-direita"> <%= @produto.quantidade  %> </td>
+            </tr>
+            <% end %>
+        <% end %>
         <tr>
             <td class="td-index-esquerda"> Preço: </td>
             <td class="td-index-direita"> <%= @produto.preco %> </td>
@@ -40,9 +44,11 @@
             <td class="td-index-esquerda"> Promoção: </td>
             <td class="td-index-direita"> <%= @produto.promocao %> </td>
         </tr>
-        <tr>
-            <td class="td-index-esquerda"> Valor da promoção: </td>
-            <td class="td-index-direita"> <%= @produto.valor_promocao %> </td>
-        </tr>
+        <% if @produto.promocao %>
+            <tr>
+                <td class="td-index-esquerda"> Valor da promoção: </td>
+                <td class="td-index-direita"> <%= @produto.valor_promocao %> </td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
