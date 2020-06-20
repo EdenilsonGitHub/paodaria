@@ -1,3 +1,5 @@
+require 'ntlm/smtp'
+
 class ApplicationMailer < ActionMailer::Base
   default from: 'edenilson@etica-ti.com.br'
   layout 'mailer'

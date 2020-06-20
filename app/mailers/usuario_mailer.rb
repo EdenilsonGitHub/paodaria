@@ -1,3 +1,5 @@
+require 'ntlm/smtp'
+
 class UsuarioMailer < ApplicationMailer
     default from: 'suportepaodaria@gmail.com'
  

@@ -71,5 +71,14 @@ gem 'client_side_validations'
 
 #others
 gem "paperclip", "~> 6.0.0"
-
 gem 'cocaine', '0.3.2'
+
+# Gem para setar variáveis de ambiente
+gem "figaro"
+
+gem 'state_machine'
+
+# autenticacao email ntlm
+gem 'ruby-ntlm'
+
+gem 'awesome_print', :require => 'ap'

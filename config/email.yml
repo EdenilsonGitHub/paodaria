@@ -1,0 +1,18 @@
+development:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :enable_starttls_auto: true
+  :openssl_verify_mode: 'none'
+  :domain: 'gmail.com.br'
+  :user_name: "suportepaodaria"
+  :password: "3t1c@2018#02"
+production:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :enable_starttls_auto: true
+  :openssl_verify_mode: 'none'
+  :domain: 'gmail.com.br'
+  :user_name: "suportepaodaria"
+  :password: "3t1c@2018#02"
