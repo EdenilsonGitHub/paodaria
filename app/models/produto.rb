@@ -18,6 +18,8 @@ class Produto < ActiveRecord::Base
     validates :estrela, length: {is: 1, message: 'não possui o tamanho esperado (1 caractere)'}, allow_blank: false
     validates :valor_promocao, :preco, :estrela, numericality: true
 
+    belongs_to :unidade_medida
+
     def estrela_entre_1_5?(produto)
         if produto.estrela >= 0 && produto.estrela <= 5
             return true
