@@ -2,9 +2,9 @@ class ProdutosController < ApplicationController
 
     before_action :procurar_id_prod,      only: [:show, :edit, :update, :destroy]
     before_action :carregar_ingredientes, only: [:show]
+    before_action :carregar_produtos,     only: [:logs, :index, :loja]
 
     def index
-        @produtos = Produto.all
     end
 
     def show
@@ -15,7 +15,7 @@ class ProdutosController < ApplicationController
     end
 
     def create
-        @produto = Produto.new(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco, :estrela, :promocao, :valor_promocao, :foto, :unidade_medida_id, :valor_unidade_medida))
+        @produto = Produto.new(params.require(:produto).permit(:nome, :descricao, :data_validade, :codigo_de_barras, :quantidade, :data_fabricacao, :preco, :estrela, :promocao, :valor_promocao, :foto, :unidade_medida_id, :valor_unidade_medida, :criado_por))
         if @produto.save
             redirect_to produtos_path
         else
@@ -39,8 +39,10 @@ class ProdutosController < ApplicationController
         redirect_to produtos_path
     end
 
-    def loja
-        @produtos = Produto.all
+    def loja        
+    end
+
+    def logs
     end
 
     private
@@ -51,6 +53,10 @@ class ProdutosController < ApplicationController
 
     def carregar_ingredientes
         @ingredientes = Ingrediente.all
+    end
+
+    def carregar_produtos
+        @produtos = Produto.all
     end
 
 end

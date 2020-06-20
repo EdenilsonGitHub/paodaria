@@ -1,8 +1,9 @@
 <div class="conteudo min-height-index-padrao-600px">
     <div class="div-cabeca-index" style="text-align: center">
         <div class="label-org-index pl-35px"> Produtos </div>
-        <div class="botoes-org-index">
+        <div class="botoes-org-index-prod">
             <%= link_to 'Novo registro', new_produto_path, class:'btn btn-success' %>
+            <%= link_to 'Logs'         , logs_path       , class:'btn btn-primary' %>
         </div>
     </div>
     <table class="table_index" style="<%= 'margin-top: 13px!important' unless @produtos.blank? %>">

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   # Produtos
   get 'loja' , to: 'produtos#loja' , as: :loja
+  get 'logs' , to: 'produtos#logs' , as: :logs
 
   # Usuarios
   post 'logar', to: 'usuarios#logar' , as: :logar

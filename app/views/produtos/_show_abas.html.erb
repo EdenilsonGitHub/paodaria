@@ -12,6 +12,13 @@
         </li>
     </ul>
 </div>
+<div class="tab_container">
+    <ul class="tabs">
+        <li id="produto_infos" class="tab-link" onclick="current_infos()">
+            <%= 'infos' %>
+        </li>
+    </ul>
+</div>
 
 <script>
 
@@ -22,13 +29,22 @@ $(document).ready(function(){
 function current_dados() {
     $('#produto_dados').addClass('current')
     $('#produto_ingredientes').removeClass('current');
+    $('#produto_infos').removeClass('current');
     $('#conteudo_show_prod').html( "<%= escape_javascript(render( :partial => 'dados' )) %>" )
 }
 
 function current_ingredientes() {
     $('#produto_ingredientes').addClass('current')
     $('#produto_dados').removeClass('current');
+    $('#produto_infos').removeClass('current');
     $('#conteudo_show_prod').html( "<%= escape_javascript(render( :partial => 'ingredientes' )) %>" )
+}
+
+function current_infos() {
+    $('#produto_infos').addClass('current')
+    $('#produto_dados').removeClass('current');
+    $('#produto_ingredientes').removeClass('current');
+    $('#conteudo_show_prod').html( "<%= escape_javascript(render( :partial => 'infos' )) %>" )
 }
 
 </script>
