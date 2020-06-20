@@ -122,6 +122,18 @@
                     <%= u.text_field :valor_promocao, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao' %>
                 </td>
             </tr>
+            <% if @usuario_logado != nil %>
+                <% if @usuario_logado.admin %>
+                    <tr>
+                        <td class="text-right alinhamento-label-form">
+                            <%= u.label :criado_por, class: 'text-right', style: 'width: 170px' %>
+                        </td>
+                        <td class="pb-6px">
+                            <%= u.text_field :criado_por, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao', value: "#{@usuario_logado.nome}" %>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>
         </tbody>
     </table>
 

@@ -1,0 +1,24 @@
+<div class="form-design">
+    <h1 class="titulo-system">Logs</h1>
+    <hr class="hr-system-80por">
+    <div class="width-80por">
+        <% @produtos.each do |prod| %>
+            <table class="tabela-lado-lado">
+                <tbody>
+                    <tr>
+                        <td class="td-index-esquerda"> Nome: </td>
+                        <td class="td-index-direita"> <%= prod.nome %> </td>
+                    </tr>
+                    <tr>
+                        <td class="td-index-esquerda"> Criado por: </td>
+                        <td class="td-index-direita"> <%= prod.criado_por %> <%= "Não cadastrado" if prod.criado_por == nil %> </td>
+                    </tr>
+                    <tr>
+                        <td class="td-index-esquerda"> Data: </td>
+                        <td class="td-index-direita"> <%= prod.created_at.strftime("%d/%m/%Y") %> </td>
+                    </tr>
+                </tbody>
+            </table>
+        <% end %>
+    </div>
+</div>
