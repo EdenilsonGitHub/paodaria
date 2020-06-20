@@ -1,7 +1,7 @@
 # encoding: UTF-8
 # require 'digest'
 class UnidadeMedida < ActiveRecord::Base
-    self.table_name = 'um'
+    self.table_name = 'unidade_medida'
 
     validates :nome, presence: true
     validates :nome, uniqueness: true

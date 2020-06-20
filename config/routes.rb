@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :parceiros
   resources :produtos
   resources :usuarios
+  resources :unidade_medidas
 
   resources :dashboards, only: :index
   resources :home, only: :index
