@@ -28,14 +28,14 @@
             <tbody>
                 <% @parceiros.each do |parceiro| %>
                     <tr class="<%= cycle("odd", "even") -%>">
-                        <td class="text-center"> <%= parceiro.id %> </td>
+                        <td class="text-center width-60px"> <%= parceiro.id %> </td>
                         <td> <%= link_to parceiro.nome, parceiro_path(parceiro), class: 'link-azul' %> </td>
                         <td> <%= parceiro.servico_prestado %> </td>                        
                         <td> <%= parceiro.cnpj %> </td>
                         <td> <%= parceiro.email %> </td>
                         <td> <%= parceiro.telefone %> </td>                                                
-                        <td class="text-center"><%= link_to(fa_icon('pencil'), edit_parceiro_path(parceiro), class:'pencil') %></td>
-                        <td class="text-center"><%= link_to(fa_icon('trash'), parceiro_path(parceiro), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_parceiro_path(parceiro), class:'pencil') %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('trash'), parceiro_path(parceiro), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
                 <% end %>
             </tbody>

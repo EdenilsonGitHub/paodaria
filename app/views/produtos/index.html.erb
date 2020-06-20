@@ -34,7 +34,7 @@
             <tbody>
                 <% @produtos.each do |produto| %>
                     <tr class="<%= cycle("odd", "even") -%>">
-                        <td class="text-center"> <%= produto.id %> </td>
+                        <td class="text-center width-60px"> <%= produto.id %> </td>
                         <td> <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %> </td>
                         <td> <%= produto.descricao %> </td>
                         <td> <%= produto.created_at.strftime("%d/%m/%Y")  %> </td>
@@ -46,8 +46,8 @@
                         <td> <%= produto.estrela %> </td>
                         <td> <%= produto.promocao %> </td>
                         <td> <%= produto.valor_promocao %> </td>
-                        <td class="text-center"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
-                        <td class="text-center"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
                 <% end %>
             </tbody>

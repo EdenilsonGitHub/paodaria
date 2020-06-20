@@ -1,0 +1,36 @@
+<div class="conteudo  min-height-index-padrao-600px">
+    <div class="div-cabeca-index" style="text-align: center">
+        <div class="label-org-index pl-35px"> Unidades de medida </div>
+        <div class="botoes-org-index">
+            <%= link_to 'Novo registro', new_unidade_medida_path, class:'btn btn-success' %>
+        </div>
+    </div>
+    <table class="table_index" style="<%= 'margin-top: 13px!important' unless @unidade_medidas.blank? %>">
+        <% if @unidade_medidas.blank? %>
+            <tr>
+                <td colspan="2" class="nao_ha_registros">
+                    Não há registros
+                </td>
+            </tr>
+        <% else %>
+            <thead>
+                <tr>
+                    <th  class="tr_table_index text-center">ID</th>
+                    <th  class="tr_table_index text-center">Nome</th>
+                    <th  class="tr_table_index text-center">Editar</th>
+                    <th  class="tr_table_index text-center">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @unidade_medidas.each do |um| %>
+                    <tr class="<%= cycle("odd", "even") -%>">
+                        <td class="text-center width-60px"> <%= um.id %> </td>
+                        <td> <%= link_to um.nome, unidade_medida_path(um), class: 'link-azul' %> </td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_unidade_medida_path(um), class:'pencil') %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('trash'), unidade_medida_path(um), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        <% end %>
+    </table>
+</div>
