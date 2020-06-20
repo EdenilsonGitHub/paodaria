@@ -1,6 +1,6 @@
 <div class="conteudo show-produtos">
     <div class="div-cabeca">
-        <div class="label-org"> Empresa (<%= @empresa.nome %>) </div>
+        <div class="label-org"> Empresa: (<%= @empresa.nome %>) </div>
         <div class="botoes-org">
             <%= link_to 'Excluir', empresa_path(@empresa.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
             <%= link_to 'Editar', edit_empresa_path(@empresa.id), class:'btn btn-light' %>
