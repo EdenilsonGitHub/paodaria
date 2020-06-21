@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_002642) do
+ActiveRecord::Schema.define(version: 2020_06_10_161934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "table_empresas", force: :cascade do |t|
+  create_table "emp", force: :cascade do |t|
     t.string "nome"
     t.string "cnpj"
     t.string "telefone"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_002642) do
     t.datetime "logo_updated_at"
   end
 
-  create_table "table_ingredientes", force: :cascade do |t|
+  create_table "ing", force: :cascade do |t|
     t.string "nome"
     t.boolean "alergicos"
     t.string "observacao"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_002642) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "table_parceiros", force: :cascade do |t|
+  create_table "parceiro", force: :cascade do |t|
     t.string "nome"
     t.string "cnpj"
     t.string "email"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_002642) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "table_produtos", force: :cascade do |t|
+  create_table "prod", force: :cascade do |t|
     t.string "nome"
     t.text "descricao"
     t.date "data_validade"
@@ -71,9 +71,19 @@ ActiveRecord::Schema.define(version: 2020_06_03_002642) do
     t.string "foto_content_type"
     t.integer "foto_file_size"
     t.datetime "foto_updated_at"
+    t.integer "estrela"
+    t.boolean "promocao"
+    t.float "valor_promocao"
   end
 
-  create_table "table_usuarios", force: :cascade do |t|
+  create_table "rel_prod_ing", force: :cascade do |t|
+    t.integer "produto_id"
+    t.integer "ingrediente_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "usr", force: :cascade do |t|
     t.string "login"
     t.string "nome"
     t.string "email"
