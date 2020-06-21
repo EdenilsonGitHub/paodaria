@@ -39,7 +39,7 @@
                     </button>
                     <div class="dropdown-menu ml-118px">
                         <a class="dropdown-item background-color-padrao color-padrao drop-first-list" href="#">Link 1</a>
-                        <a class="dropdown-item background-color-padrao color-padrao" href="#">Link 2</a>
+                        <%= link_to 'Minha conta', usuario_path(@usuario_logado), class: 'dropdown-item background-color-padrao color-padrao' %>
                         <%= link_to 'Sair', sair_path, class: 'dropdown-item background-color-padrao color-padrao drop-last-list'  %>
                     </div>
                 </div>
