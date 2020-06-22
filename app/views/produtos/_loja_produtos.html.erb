@@ -15,7 +15,9 @@
                 <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
             </ul>
-            <span class="product-new-label">Novo</span>
+            <% if ((Time.now.to_f * 1000).floor - (produto.created_at.to_f * 1000).floor) <= 86400000 %>
+                <span class="product-new-label">Novo</span>
+            <% end %>
         </div>
         <div class="product-content">
             <h3 class="title">
@@ -29,8 +31,12 @@
                 <li class="fa fa-star disable"></li>
             </ul>
             <div class="price">
-                R$<%= produto.preco %>
-                <span>R$75.00</span>
+                <% if produto.promocao %>
+                    R$<%= produto.valor_promocao %>
+                    <span>R$<%= produto.preco %></span>
+                <% else %>
+                    R$<%= produto.preco %>
+                <% end %>
             </div>
         </div>
     </div>

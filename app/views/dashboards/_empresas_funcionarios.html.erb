@@ -1,0 +1,43 @@
+<% @empresas.each_with_index do |emp, index| %>
+    <fieldset class="fieldset" style="margin-left: 10px;margin-right: 10px;">
+        <legend class="legend">
+            <%= emp.nome %>
+        </legend>
+        <table class="table_index" style="<%= 'margin-top: 13px!important' unless @usuarios.blank? %>">
+            <% if @empresas_func.blank? %>
+                <tr>
+                    <td colspan="2" class="nao_ha_registros">
+                        Não há registros
+                    </td>
+                </tr>
+            <% else %>
+                <thead>
+                    <tr>
+                        <th class="tr_table_index text-center">ID</th>
+                        <th class="tr_table_index text-center">Nome</th>
+                        <th class="tr_table_index text-center">login</th>
+                        <th class="tr_table_index text-center">Email</th>
+                        <th class="tr_table_index text-center">Data de nascimento</th>
+                        <th class="tr_table_index text-center">Admin</th>
+                        <th class="tr_table_index text-center">Gerente</th>
+                        <th class="tr_table_index text-center">Telefone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @empresas_func[index].each do |func| %>           
+                        <tr class="<%= cycle("odd", "even") -%>">
+                            <td class="text-center"> <%= func.id %> </td>
+                            <td> <%= link_to func.nome, usuario_path(func), class: 'link-azul' %> </td>
+                            <td> <%= func.login %> </td>
+                            <td> <%= func.email %> </td>
+                            <td> <%= func.data_de_nascimento.strftime("%m/%d/%Y") %> </td>
+                            <td> <%= func.admin %> </td>
+                            <td> <%= func.gerente %> </td>
+                            <td> <%= func.telefone %> </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            <% end %>
+        </table>
+    </fieldset>
+<% end %>

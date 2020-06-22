@@ -6,19 +6,24 @@ Rails.application.routes.draw do
   resources :parceiros
   resources :produtos
   resources :usuarios
+  resources :unidade_medidas
 
   resources :dashboards, only: :index
   resources :home, only: :index
-
-  # Usuarios
-  post 'logar', to: 'usuarios#logar'   , as: :logar
-  get  'login', to: 'usuarios#login'   , as: :login
   
   # Application
-  get  'sair' , to: 'application#sair' , as: :sair
+  get 'sair', to: 'application#sair', as: :sair
   
-  # Produto
-  get  'loja' , to: 'produtos#loja'    , as: :loja
+  # Cadastros
+  get 'cadastros_index', to: 'cadastros#index' , as: :cadastros_index
+
+  # Produtos
+  get 'loja' , to: 'produtos#loja' , as: :loja
+  get 'logs' , to: 'produtos#logs' , as: :logs
+
+  # Usuarios
+  post 'logar', to: 'usuarios#logar' , as: :logar
+  get  'login', to: 'usuarios#login' , as: :login
 
   # Rota inicial
   root :to => 'home#index'

@@ -1,38 +1,41 @@
-<div class="div-conteudo-fundo">
-    <div class="div-lateral">
-        <button class="btn-lateral lateral-first" id="renderizar_estoque_produto" onclick="renderizar_produto()">
-            Produtos
-        </button>
-        <button class="btn-lateral">
-            Exemplo 2
-        </button>
-        <button class="btn-lateral">
-            Exemplo 3
-        </button>
-        <button class="btn-lateral">
-            Exemplo 4
-        </button>
-        <button class="btn-lateral lateral-last">
-            Exemplo 5
-        </button>
+<div class="conteudo-dashboard min-height-index-padrao-600px">
+    <div class="div-cabeca-index text-center">
+        <div class="label-org-index"> Painel de controle </div>
     </div>
-    <div class="conteudo  min-height-index-padrao-600px painel-de-controle-conteudo" >
-        <div class="div-cabeca-index text-center">
-            <div class="label-org-index"> Painel de controle </div>
-            <div class="botoes-org-index">
+    <div class="div_dashboards_index">
+        <div>
+            <div class="background-controle-hover" onclick="produtos_on()"> Produtos <i style="vertical-align: middle;" class="fa fa-caret-right" id="fa-produtos"> </i></div>
+            <div style="display: none" class="displays" id="produtos_on">
+                <%= render('estoque_produto') %>
             </div>
         </div>
-        <div class="width-100por" id="conteudo_dashboard">
-            <div class="selecione_a_esquerda">
-                Selecione uma opção à esquerda
+        <div>
+            <div class="background-controle-hover" onclick="funcionarios_on()"> Funcionários <i style="vertical-align: middle;" class="fa fa-caret-right" id="fa-funcionarios"> </i> </div>
+            <div style="display: none" class="displays" id="funcionarios_on">
+                <%= render('empresas_funcionarios') %>
             </div>
-        </div>
+        </div>    
     </div>
 </div>
 
 <script>
 
-function renderizar_produto() {
-    $("#conteudo_dashboard").html("<%= escape_javascript(render('estoque_produto')) %>");
+function produtos_on() {
+    display_none();
+    $("#produtos_on").css("display", "block");
+    $("#fa-produtos").addClass("transform-90");
+    $("#fa-funcionarios").removeClass("transform-90");
 }
+
+function funcionarios_on() {
+    display_none();
+    $("#funcionarios_on").css("display", "block");
+    $("#fa-produtos").removeClass("transform-90");
+    $("#fa-funcionarios").addClass("transform-90");
+}
+
+function display_none(){
+    $(".displays").css("display", "none");
+}
+
 </script>

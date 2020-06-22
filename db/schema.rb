@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_161934) do
+ActiveRecord::Schema.define(version: 2020_06_20_124919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,11 +74,18 @@ ActiveRecord::Schema.define(version: 2020_06_10_161934) do
     t.integer "estrela"
     t.boolean "promocao"
     t.float "valor_promocao"
+    t.integer "um_id"
   end
 
   create_table "rel_prod_ing", force: :cascade do |t|
     t.integer "produto_id"
     t.integer "ingrediente_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "unidade_medida", force: :cascade do |t|
+    t.string "nome"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

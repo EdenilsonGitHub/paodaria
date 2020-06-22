@@ -32,6 +32,26 @@
             </tr>
             <tr>
                 <td class="text-right alinhamento-label-form">
+                    <%= u.label 'Valor(UM)', class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :valor_unidade_medida, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label "Unidade de medida", class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="<%= 'pb-6px' if UnidadeMedida.any? %>">
+                    <% if UnidadeMedida.any? %>
+                        <%= u.select(:unidade_medida_id, UnidadeMedida.all.collect {|p| [ p.nome, p.id ] }, {include_blank: true}, class: 'form-control focus-padrao', style: 'width: 100%;')%>
+                    <% else %>
+                        <div style="color: red">Nenhuma empresa foi cadastrada.</div>
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
                     <%= u.label :foto, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
@@ -78,6 +98,42 @@
                     <%= u.text_field :preco, class: 'form-control focus-padrao', style: 'width: 100%' %>
                 </td>
             </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :estrela, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :estrela, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :promocao, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px pt-9px">
+                    <%= u.check_box :promocao, class: 'focus-check', id: 'check_box_promocao' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
+                    <%= u.label :valor_promocao, class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :valor_promocao, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao' %>
+                </td>
+            </tr>
+            <% if @usuario_logado != nil %>
+                <% if @usuario_logado.admin %>
+                    <tr>
+                        <td class="text-right alinhamento-label-form">
+                            <%= u.label :criado_por, class: 'text-right', style: 'width: 170px' %>
+                        </td>
+                        <td class="pb-6px">
+                            <%= u.text_field :criado_por, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao', value: "#{@usuario_logado.nome}" %>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>
         </tbody>
     </table>
 
@@ -88,3 +144,19 @@
     </div>
 
 <% end %>
+
+<script>
+$(document).ready(function() {
+
+    $('#check_box_promocao').change(function() {
+        if(this.checked) {
+            $('#text_field_promocao').css('pointer-events', 'all');
+            $('#text_field_promocao').css('background-color', 'white');
+        }else {
+            $('#text_field_promocao').css('pointer-events', 'none');
+            $('#text_field_promocao').css('background-color', '#D5DBD5');
+            $('#text_field_promocao').val('')
+        }        
+    });
+});
+</script>

@@ -9,20 +9,13 @@
         <li class="nav-list-item">
             <%= link_to 'Loja', loja_path(), class: 'nav-link' %>
         </li>
-        <li class="nav-list-item" style="margin-right: 20px;">
-                <button type="button" class="btn dropdown-toggle dropdown-toggle-split color-padrao-red btn-sem-focus ml-11px" data-toggle="dropdown">
-                    Cadastros
-                </button>
-                <div class="dropdown-menu ml-m6px min-width-0px mt-3px">
-                    <%= link_to 'Empresas', empresas_path(), class: 'dropdown-item background-color-padrao color-padrao drop-first-list' %>
-                    <%= link_to 'Ingredientes', ingredientes_path(), class: 'dropdown-item background-color-padrao color-padrao' %>
-                    <%= link_to 'Painel de controle', dashboards_path(), class: 'dropdown-item background-color-padrao color-padrao' %>    
-                    <%= link_to 'Parceiros', parceiros_path(), class: 'dropdown-item background-color-padrao color-padrao' %>                        
-                    <%= link_to 'Produtos', produtos_path(), class: 'dropdown-item background-color-padrao color-padrao' %>    
-                    <%= link_to 'Usuários', usuarios_path(), class: 'dropdown-item background-color-padrao color-padrao drop-last-list' %>    
-                </div>
-            </div>
-        </li>
+        <% if @usuario_logado != nil %>
+            <% if @usuario_logado.admin || @usuario_logado.gerente %>
+                <li class="nav-list-item">
+                    <%= link_to 'Cadastros administrativos', cadastros_index_path(), class: 'nav-link' %>
+                </li>
+            <% end %>
+        <% end %>
         <li class="nav-list-item">
             <div class="container h-100">
                 <div class="d-flex justify-content-center h-100">
@@ -42,11 +35,11 @@
                 <div class="btn-group" style="margin-top: 10px!important">
                     <button type="button" class="btn btn-padrao width-50px"><%= @usuario_logado.nome %></button>
                     <button type="button" class="btn btn-padrao dropdown-toggle dropdown-toggle-split"
-                        data-toggle="dropdown">
+                        data-toggle="dropdown" style="padding-left: 8px!important">
                     </button>
-                    <div class="dropdown-menu ml-110px">
+                    <div class="dropdown-menu ml-118px">
                         <a class="dropdown-item background-color-padrao color-padrao drop-first-list" href="#">Link 1</a>
-                        <a class="dropdown-item background-color-padrao color-padrao" href="#">Link 2</a>
+                        <%= link_to 'Minha conta', usuario_path(@usuario_logado), class: 'dropdown-item background-color-padrao color-padrao' %>
                         <%= link_to 'Sair', sair_path, class: 'dropdown-item background-color-padrao color-padrao drop-last-list'  %>
                     </div>
                 </div>

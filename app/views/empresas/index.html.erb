@@ -1,6 +1,6 @@
 <div class="conteudo  min-height-index-padrao-600px">
     <div class="div-cabeca-index" style="text-align: center">
-        <div class="label-org-index"> Empresas </div>
+        <div class="label-org-index pl-35px"> Empresas </div>
         <div class="botoes-org-index">
             <%= link_to 'Novo registro', new_empresa_path, class:'btn btn-success' %>
         </div>
@@ -30,7 +30,7 @@
             <tbody>
                 <% @empresas.each do |empresa| %>
                     <tr class="<%= cycle("odd", "even") -%>">
-                        <td class="text-center"> <%= empresa.id %> </td>
+                        <td class="text-center width-60px"> <%= empresa.id %> </td>
                         <td> <%= link_to empresa.nome, empresa_path(empresa), class: 'link-azul' %> </td>
                         <td> <%= empresa.razao_social %> </td>
                         <td> <%= empresa.sigla %> </td>                        
@@ -38,8 +38,8 @@
                         <td> <%= empresa.telefone %> </td>
                         <td> <%= empresa.email %> </td>
                         <td> <%= empresa.ativo %> </td>
-                        <td class="text-center"><%= link_to(fa_icon('pencil'), edit_empresa_path(empresa), class:'pencil') %></td>
-                        <td class="text-center"><%= link_to(fa_icon('trash'), empresa_path(empresa), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_empresa_path(empresa), class:'pencil') %></td>
+                        <td class="text-center width-60px"><%= link_to(fa_icon('trash'), empresa_path(empresa), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
                 <% end %>
             </tbody>
