@@ -1,7 +1,25 @@
 <div class="form-design min-height-loja">
     <h1 class="titulo-system">Loja</h1>
     <hr class="hr-system-80por">
-    <div class="width-80por">
+    <div class="width-80por color-padrao-gray">
+        <fieldset class="fieldset_loja" style="margin-left: 10px;margin-right: 10px;">
+            <legend class="legend">
+                Ordenar por:
+            </legend>
+            <ul>
+                <li>
+                    <%= link_to "Nome", ordenar_por_nome_path, :remote => true, class: 'color-padrao-red' %>
+                </li>
+                <li>
+                    <%= link_to "Preço maior", ordenar_por_preco_maior_path, :remote => true, class: 'color-padrao-red' %>
+                </li>
+                <li>
+                    <%= link_to "Preço menor", ordenar_por_preco_menor_path, :remote => true, class: 'color-padrao-red' %>
+                </li>
+        </fieldset>
+    </div>
+    <hr class="hr-system-80por">
+    <div class="width-80por" id="index_loja_produtos">
         <%= render('loja_produtos') %>
     </div>
 </div>

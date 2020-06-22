@@ -45,6 +45,27 @@ class ProdutosController < ApplicationController
     def logs
     end
 
+    def ordenar_por_nome
+        @produtos = Produto.order(:nome)
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def ordenar_por_preco_maior
+        @produtos = Produto.order(:preco).reverse
+        respond_to do |format|
+            format.js
+        end
+    end
+
+    def ordenar_por_preco_menor
+        @produtos = Produto.order(:preco)
+        respond_to do |format|
+            format.js
+        end
+    end
+
     private
 
     def procurar_id_prod
