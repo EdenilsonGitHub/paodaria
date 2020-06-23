@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_154919) do
+ActiveRecord::Schema.define(version: 2020_06_23_224654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categ", force: :cascade do |t|
+  create_table "classe", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_06_22_154919) do
     t.integer "unidade_medida_id"
     t.float "valor_unidade_medida"
     t.string "criado_por"
-    t.integer "categoria_id"
   end
 
   create_table "rel_prod_ing", force: :cascade do |t|
