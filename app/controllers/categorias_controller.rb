@@ -1,4 +1,0 @@
-class CategoriasController < ApplicationController
-
-
-end
