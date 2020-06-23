@@ -13,7 +13,7 @@ class ParceirosController < ApplicationController
     end
 
     def create
-        @parceiro = Parceiro.new(params.require(:parceiro).permit(:nome, :servico_prestado, :logo, :cnpj, :email, :telefone))
+        @parceiro = Parceiro.new(params.require(:parceiro).permit(:nome, :servico_prestado, :logo_parc, :cnpj, :email, :telefone))
         if @parceiro.save
             redirect_to parceiros_path
         else
@@ -25,7 +25,7 @@ class ParceirosController < ApplicationController
     end    
 
     def update 
-        if @parceiro.update_attributes(params.require(:parceiro).permit(:nome, :servico_prestado, :logo, :cnpj, :email, :telefone))
+        if @parceiro.update_attributes(params.require(:parceiro).permit(:nome, :servico_prestado, :logo_parc, :cnpj, :email, :telefone))
             redirect_to parceiros_path
         else
             render 'edit'
