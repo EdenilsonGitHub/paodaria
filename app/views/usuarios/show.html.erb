@@ -35,11 +35,11 @@
             </tr>            
             <tr>        
                 <td class="td-index-esquerda"> Gerente: </td>
-                <td class="td-index-direita"> <%= @usuario.gerente ? 'sim' : 'não'  %> </td>
+                <td class="td-index-direita"> <%= @usuario.gerente ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')   %> </td>
             </tr>            
             <tr>
                 <td class="td-index-esquerda"> Administrador: </td>
-                <td class="td-index-direita"> <%= @usuario.admin ? 'sim' : 'não' %> </td>
+                <td class="td-index-direita"> <%= @usuario.admin ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
             </tr>
         </tbody>
     </table>

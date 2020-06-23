@@ -14,13 +14,13 @@
                 <td class="td-index-direita"> <%= @ingrediente.nome %> </td>
             </tr>
             <tr>
+                <td class="td-index-esquerda"> Alergicos: </td>
+                <td class="td-index-direita"> <%= @ingrediente.alergicos ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
+            </tr>
+            <tr>
                 <td class="td-index-esquerda"> Observacao: </td>
                 <td class="td-index-direita"> <%= @ingrediente.observacao %> </td>
             </tr>           
-            <tr>
-                <td class="td-index-esquerda"> Alergicos: </td>
-                <td class="td-index-direita"> <%= @ingrediente.alergicos ? 'sim' : 'não' %> </td>
-            </tr>
         </tbody>
     </table>
 </div>

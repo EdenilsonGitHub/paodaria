@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td class="td-index-esquerda"> Promoção: </td>
-            <td class="td-index-direita"> <%= @produto.promocao %> </td>
+            <td class="td-index-direita"> <%= @produto.promocao ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
         </tr>
         <% if @produto.promocao %>
             <tr>

@@ -27,9 +27,9 @@
                 <% @ingredientes.each do |ingrediente| %>
                     <tr class="<%= cycle("odd", "even") -%>">
                         <td class="text-center width-60px"> <%= ingrediente.id %> </td>
-                        <td> <%= link_to ingrediente.nome, ingrediente_path(ingrediente), class: 'link-azul' %> </td>
-                        <td> <%= ingrediente.alergicos %> </td>                        
-                        <td> <%= ingrediente.observacao %> </td>                                                
+                        <td class="width-150px"> <%= link_to ingrediente.nome, ingrediente_path(ingrediente), class: 'link-azul' %> </td>
+                        <td class="text-center width-60px"> <%= ingrediente.alergicos ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14') %> </td>                        
+                        <td class="width-150px"> <%= ingrediente.observacao %> </td>                                                
                         <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_ingrediente_path(ingrediente), class:'pencil') %></td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('trash'), ingrediente_path(ingrediente), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
