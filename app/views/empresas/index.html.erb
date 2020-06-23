@@ -31,13 +31,13 @@
                 <% @empresas.each do |empresa| %>
                     <tr class="<%= cycle("odd", "even") -%>">
                         <td class="text-center width-60px"> <%= empresa.id %> </td>
-                        <td> <%= link_to empresa.nome, empresa_path(empresa), class: 'link-azul' %> </td>
-                        <td> <%= empresa.razao_social %> </td>
-                        <td> <%= empresa.sigla %> </td>                        
-                        <td> <%= empresa.cnpj %> </td>
-                        <td> <%= empresa.telefone %> </td>
-                        <td> <%= empresa.email %> </td>
-                        <td> <%= empresa.ativo %> </td>
+                        <td class="width-150px"> <%= link_to empresa.nome, empresa_path(empresa), class: 'link-azul' %> </td>
+                        <td class="width-150px"> <%= empresa.razao_social %> </td>
+                        <td class="width-150px"> <%= empresa.sigla %> </td>                        
+                        <td class="width-150px"> <%= empresa.cnpj %> </td>
+                        <td class="width-150px"> <%= empresa.telefone %> </td>
+                        <td class="width-150px"> <%= empresa.email %> </td>
+                        <td class="text-center width-60px"> <%= empresa.ativo ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_empresa_path(empresa), class:'pencil') %></td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('trash'), empresa_path(empresa), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>

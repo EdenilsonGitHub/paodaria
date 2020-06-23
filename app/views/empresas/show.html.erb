@@ -67,7 +67,7 @@
             </tr>
             <tr>
                 <td class="td-index-esquerda"> Ativo: </td>
-                <td class="td-index-direita"> <%= @empresa.ativo %> </td>
+                <td class="td-index-direita"> <%= @empresa.ativo ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
             </tr>
         </tbody>
     </table>

@@ -36,17 +36,17 @@
                 <% @produtos.each do |produto| %>
                     <tr class="<%= cycle("odd", "even") -%>">
                         <td class="text-center width-60px"> <%= produto.id %> </td>
-                        <td> <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %> </td>
-                        <td> <%= produto.descricao %> </td>
-                        <td> <%= produto.created_at.strftime("%d/%m/%Y")  %> </td>
-                        <td> <%= produto.data_fabricacao.strftime("%d/%m/%Y") %> </td>
-                        <td> <%= produto.data_validade.strftime("%d/%m/%Y") %> </td>
-                        <td> <%= produto.codigo_de_barras %> </td>
-                        <td> <%= produto.quantidade %> </td>
-                        <td> <%= produto.preco %> </td>
-                        <td> <%= produto.estrela %> </td>
-                        <td> <%= produto.promocao %> </td>
-                        <td> <%= produto.valor_promocao %> </td>
+                        <td class="width-150px"> <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %> </td>
+                        <td class="width-150px"> <%= produto.descricao %> </td>
+                        <td class="width-150px"> <%= produto.created_at.strftime("%d/%m/%Y")  %> </td>
+                        <td class="width-150px"> <%= produto.data_fabricacao.strftime("%d/%m/%Y") %> </td>
+                        <td class="width-150px"> <%= produto.data_validade.strftime("%d/%m/%Y") %> </td>
+                        <td class="width-150px"> <%= produto.codigo_de_barras %> </td>
+                        <td class="width-150px"> <%= produto.quantidade %> </td>
+                        <td class="width-150px"> <%= produto.preco %> </td>
+                        <td class="width-150px"> <%= produto.estrela %> </td>
+                        <td class="text-center width-60px"> <%= produto.promocao ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')   %> </td>
+                        <td class="width-150px"> <%= produto.valor_promocao %> </td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
