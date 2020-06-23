@@ -7,7 +7,7 @@ class CreateTableParceiro < ActiveRecord::Migration[6.0]
       t.string :telefone
       t.string :logo
       t.string :servico_prestado
-      t.timestamps   
+      t.timestamps
     end
   end
 end
