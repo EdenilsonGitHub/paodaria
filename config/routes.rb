@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :produtos
   resources :usuarios
   resources :unidade_medidas
+  resources :classes
 
   resources :dashboards, only: :index
   resources :home, only: :index
