@@ -66,6 +66,13 @@ class ProdutosController < ApplicationController
         end
     end
 
+    def ordenar_por_promocao
+        @produtos = Produto.where(promocao: true)
+        respond_to do |format|
+            format.js
+        end
+    end
+
     private
 
     def procurar_id_prod
