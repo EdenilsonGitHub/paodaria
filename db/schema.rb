@@ -57,10 +57,17 @@ ActiveRecord::Schema.define(version: 2020_06_23_224654) do
     t.string "cnpj"
     t.string "email"
     t.string "telefone"
-    t.string "logo"
     t.string "servico_prestado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "logo_parc_file_name"
+    t.string "logo_parc_content_type"
+    t.integer "logo_parc_file_size"
+    t.datetime "logo_parc_updated_at"
+    t.string "string_file_name"
+    t.string "string_content_type"
+    t.integer "string_file_size"
+    t.datetime "string_updated_at"
   end
 
   create_table "prod", force: :cascade do |t|
