@@ -13,6 +13,10 @@
             <td class="td-index-direita"> <%= @produto.descricao %> </td>
         </tr>
         <tr>
+            <td class="td-index-esquerda"> Peso: </td>
+            <td class="td-index-direita"> <%= @produto.valor_unidade_medida.to_s + ' ' + @produto.unidade_medida.nome %> </td>
+        </tr>
+        <tr>
             <td class="td-index-esquerda"> Data de fabricação: </td>
             <td class="td-index-direita"> <%= @produto.data_fabricacao.strftime("%m/%d/%Y") %> </td>
         </tr>

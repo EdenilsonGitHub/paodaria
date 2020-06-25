@@ -19,6 +19,7 @@
                     <th  class="tr_table_index text-center">ID</th>
                     <th  class="tr_table_index text-center">Nome</th>
                     <th  class="tr_table_index text-center">Descrição</th>
+                    <th  class="tr_table_index text-center">Peso</th>
                     <th  class="tr_table_index text-center">Data de Cadastro</th>
                     <th  class="tr_table_index text-center">Data de fabricação</th>
                     <th  class="tr_table_index text-center">Data de validade</th>
@@ -38,6 +39,7 @@
                         <td class="text-center width-60px"> <%= produto.id %> </td>
                         <td class="width-150px"> <%= link_to produto.nome, produto_path(produto), class: 'link-azul' %> </td>
                         <td class="width-150px"> <%= produto.descricao %> </td>
+                        <td class="width-150px"> <%= produto.valor_unidade_medida.to_s + ' ' + produto.unidade_medida.nome %> </td>
                         <td class="width-150px"> <%= produto.created_at.strftime("%d/%m/%Y")  %> </td>
                         <td class="width-150px"> <%= produto.data_fabricacao.strftime("%d/%m/%Y") %> </td>
                         <td class="width-150px"> <%= produto.data_validade.strftime("%d/%m/%Y") %> </td>
