@@ -5,6 +5,10 @@ class ClassesController < ApplicationController
         @classe = Classe.new
     end
 
+    def index
+        @classes = Classe.all
+    end
+
     def create
         @classe = Classe.new(params.require(:classe).permit(:nome))
         if @classe.save
@@ -23,6 +27,11 @@ class ClassesController < ApplicationController
         else
             render 'edit'
         end                
+    end
+
+    def destroy
+        @classe.destroy
+        redirect_to classes_path
     end
 
     private
