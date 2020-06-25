@@ -45,7 +45,7 @@
                         <td class="width-150px"> <%= produto.data_validade.strftime("%d/%m/%Y") %> </td>
                         <td class="width-150px"> <%= produto.codigo_de_barras %> </td>
                         <td class="width-150px"> <%= produto.quantidade %> </td>
-                        <td class="width-150px"> <%= produto.preco %> </td>
+                        <td class="width-150px"> <%= produto.preco.to_currency(Currency::BRL) %> </td>
                         <td class="width-150px"> <%= produto.estrela %> </td>
                         <td class="text-center width-60px"> <%= produto.promocao ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')   %> </td>
                         <td class="width-150px"> <%= produto.valor_promocao %> </td>
