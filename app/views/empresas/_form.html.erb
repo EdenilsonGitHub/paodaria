@@ -51,7 +51,7 @@
                     <%= u.label "CNPJ", class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :cnpj, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :cnpj, class: 'form-control focus-padrao cnpj', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
                     <%= u.label :telefone, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :telefone, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :telefone, class: 'form-control focus-padrao phone_with_ddd', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
@@ -123,7 +123,7 @@
                     <%= u.label :cep, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :cep, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :cep, class: 'form-control focus-padrao cep', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
@@ -144,3 +144,9 @@
     </div>
 
 <% end %>
+
+<script>
+    $('.cnpj').mask('00.000.000/0000-00', {placeholder: "00.000.000/0000-00"});
+    $('.phone_with_ddd').mask('(00) 00000-0000', {placeholder: "(00) 00000-0000"});
+    $('.cep').mask('00000-000', {placeholder: "00000-000"});
+</script>

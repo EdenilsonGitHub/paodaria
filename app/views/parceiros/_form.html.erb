@@ -43,7 +43,7 @@
                     <%= u.label "CNPJ", class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :cnpj, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :cnpj, class: 'form-control focus-padrao cnpj', style: 'width: 100%' %>
                 </td>
             </tr>            
             <tr>
@@ -59,7 +59,7 @@
                     <%= u.label :telefone, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :telefone, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :telefone, class: 'form-control focus-padrao phone_with_ddd', style: 'width: 100%' %>
                 </td>
             </tr>                 
         </tbody>
@@ -72,3 +72,8 @@
     </div>
 
 <% end %>
+
+<script>
+    $('.cnpj').mask('00.000.000/0000-00', {placeholder: "00.000.000/0000-00"});
+    $('.phone_with_ddd').mask('(00) 0 0000-0000', {placeholder: "(49) 8 8888-8888"});
+</script>
