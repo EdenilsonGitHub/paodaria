@@ -32,10 +32,10 @@
             </ul>
             <div class="price">
                 <% if produto.promocao %>
-                    R$<%= produto.valor_promocao %>
-                    <span>R$<%= produto.preco %></span>
+                    <%= produto.valor_promocao.to_currency(Currency::BRL) %>
+                    <span><%= produto.preco.to_currency(Currency::BRL) %></span>
                 <% else %>
-                    R$<%= produto.preco %>
+                    <%= produto.preco.to_currency(Currency::BRL) %>
                 <% end %>
             </div>
         </div>

@@ -38,7 +38,7 @@
         <% end %>
         <tr>
             <td class="td-index-esquerda"> Preço: </td>
-            <td class="td-index-direita"> <%= @produto.preco %> </td>
+            <td class="td-index-direita"> <%= @produto.preco.to_currency(Currency::BRL) %> </td>
         </tr>
         <tr>
             <td class="td-index-esquerda"> Estrelas: </td>
@@ -51,7 +51,7 @@
         <% if @produto.promocao %>
             <tr>
                 <td class="td-index-esquerda"> Valor da promoção: </td>
-                <td class="td-index-direita"> <%= @produto.valor_promocao %> </td>
+                <td class="td-index-direita"> <%= @produto.valor_promocao.to_currency(Currency::BRL) %> </td>
             </tr>
         <% end %>
     </tbody>
