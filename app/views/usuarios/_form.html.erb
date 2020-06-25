@@ -35,7 +35,7 @@
                     <%= u.label :telefone, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :telefone, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :telefone, class: 'form-control focus-padrao phone_with_ddd', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
@@ -108,3 +108,7 @@
     </div>
 
 <% end %>
+
+<script>
+    $('.phone_with_ddd').mask('(00) 0 0000-0000', {placeholder: "(49) 8 8888-8888"});
+</script>

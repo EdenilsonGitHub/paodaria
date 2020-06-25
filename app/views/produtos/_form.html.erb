@@ -95,7 +95,7 @@
                     <%= u.label "Preço", class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :preco, class: 'form-control focus-padrao', style: 'width: 100%' %>
+                    <%= u.text_field :preco, class: 'form-control focus-padrao money', style: 'width: 100%' %>
                 </td>
             </tr>
             <tr>
@@ -119,7 +119,7 @@
                     <%= u.label :valor_promocao, class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">
-                    <%= u.text_field :valor_promocao, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao' %>
+                    <%= u.text_field :valor_promocao, class: 'form-control focus-padrao money', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao' %>
                 </td>
             </tr>
             <% if @usuario_logado != nil %>
@@ -129,7 +129,7 @@
                             <%= u.label :criado_por, class: 'text-right', style: 'width: 170px' %>
                         </td>
                         <td class="pb-6px">
-                            <%= u.text_field :criado_por, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', id: 'text_field_promocao', value: "#{@usuario_logado.nome}" %>
+                            <%= u.text_field :criado_por, class: 'form-control focus-padrao', style: 'width: 100%; pointer-events: none; background-color: #D5DBD5', value: "#{@usuario_logado.nome}" %>
                         </td>
                     </tr>
                 <% end %>
@@ -158,5 +158,8 @@ $(document).ready(function() {
             $('#text_field_promocao').val('')
         }        
     });
+
+    $('.money').mask('000.000.000.000.000,00', {reverse: true, placeholder: "00,00"});
+    
 });
 </script>
