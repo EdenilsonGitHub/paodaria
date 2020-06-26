@@ -7,12 +7,18 @@
         </tr>
         <tr>
             <td>
-                <%# form_tag(add_ing_prod_path) do %>
-                    <%# select_tag "Ingrediente", options_from_collection_for_select(@ingredientes, "id", "nome"), class: 'btn btn-primary' %>
-                    <%# submit_tag 'Add', class:'btn btn-success' %>
-                <%# end %>
+                <%= form_tag(adicionar_ingrediente_path()) do %>
+                    <%# hidden_field_tag(:escopo, {}, value: 'm') %>
+                    <%# hidden_field_tag('registros[]', {}, value: @movimento.id) %>
+                    <%= hidden_field_tag(:produto, {}, value: @produto.id) %>
+                    <%= select_tag "Ingrediente", options_from_collection_for_select(@ingredientes, "id", "nome"), class: 'btn btn-primary' %>
+                    <%= submit_tag 'Add', remote: true, data: { disable_with: "Submitting...", class:'btn btn-success' } %>
+                <% end %>
             </td>
         </tr>
+        <div class="width-80por" id="ingredientes_produto">
+            <%= render('ingredientes_produto') %>
+        </div>
     </tbody>
 </table>
 

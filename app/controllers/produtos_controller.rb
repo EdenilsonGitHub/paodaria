@@ -73,6 +73,23 @@ class ProdutosController < ApplicationController
         end
     end
 
+    def adicionar_ingrediente
+        rel_prod_ing = Relproding.new
+        rel_prod_ing.ingrediente_id = params[:Ingrediente]
+        rel_prod_ing.produto_id = params[:produto]
+        rel_prod_ing.save
+        @all_rel = Relproding.where(produto_id: params[:produto]).uniq
+        @id_ingredientes = []
+        @all_rel.each do |all|
+            @id_ingredientes << all
+        end
+        binding.pry
+        @ingredientes_produto = Relproding.where(produto_id: params[:produto], ingrediente_id: params[:Ingrediente])
+        respond_to do |format|
+            format.js
+        end
+    end
+
     private
 
     def procurar_id_prod
