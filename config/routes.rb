@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   # Produtos
   get    'loja'                   , to: 'produtos#loja'                   , as: :loja
+  get    'comprar_produto'        , to: 'produtos#comprar_produto'        , as: :comprar_produto
   get    'logs'                   , to: 'produtos#logs'                   , as: :logs
   get    'ordenar_por_nome'       , to: 'produtos#ordenar_por_nome'       , as: :ordenar_por_nome
   get    'ordenar_por_preco_maior', to: 'produtos#ordenar_por_preco_maior', as: :ordenar_por_preco_maior

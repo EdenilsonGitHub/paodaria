@@ -125,6 +125,10 @@ class ProdutosController < ApplicationController
         @ingredientes = Ingrediente.where.not(id: @id_ingredientes)
     end
 
+    def comprar_produto
+        binding.pry
+    end
+
     private
 
     def procurar_id_prod
