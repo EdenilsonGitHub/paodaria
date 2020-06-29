@@ -8,6 +8,16 @@ class ProdutosController < ApplicationController
     end
 
     def show
+        @all_rel = Relproding.where(produto_id: @produto.id)
+        @id_ingredientes = []
+        @all_rel.each do |all|
+            @id_ingredientes << all.ingrediente_id
+        end
+        @ingredientes_produto = []
+        @id_ingredientes.each do |ing|
+            @ingredientes_produto << Ingrediente.where(id: ing)
+        end
+        @ingredientes = Ingrediente.where.not(id: @id_ingredientes)
     end
 
     def new
@@ -71,6 +81,48 @@ class ProdutosController < ApplicationController
         respond_to do |format|
             format.js
         end
+    end
+
+    def adicionar_ingrediente
+        criar_relacao
+        respond_to do |format|
+            format.js   {}
+        end
+    end
+
+    def excluir_ingrediente
+        Relproding.where(produto_id: params[:format], ingrediente_id: params[:id]).delete_all
+        @all_rel = Relproding.where(produto_id: params[:format])
+        @id_ingredientes = []
+        @all_rel.each do |all|
+            @id_ingredientes << all.ingrediente_id
+        end
+        @ingredientes_produto = []
+        @id_ingredientes.each do |ing|
+            @ingredientes_produto << Ingrediente.where(id: ing)
+        end
+        @ingredientes = Ingrediente.where.not(id: @id_ingredientes)
+    end
+
+    def criar_relacao
+        rel_prod_ing = Relproding.new
+        rel_prod_ing.ingrediente_id = params[:Ingrediente]
+        rel_prod_ing.produto_id = params[:produto]
+        rel_prod_ing.save
+        buscar_ingredientes_associados()
+    end
+
+    def buscar_ingredientes_associados
+        @all_rel = Relproding.where(produto_id: params[:produto])
+        @id_ingredientes = []
+        @all_rel.each do |all|
+            @id_ingredientes << all.ingrediente_id
+        end
+        @ingredientes_produto = []
+        @id_ingredientes.each do |ing|
+            @ingredientes_produto << Ingrediente.where(id: ing)
+        end
+        @ingredientes = Ingrediente.where.not(id: @id_ingredientes)
     end
 
     private
