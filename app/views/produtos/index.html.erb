@@ -48,7 +48,7 @@
                         <td class="width-150px"> <%= produto.preco.to_currency(Currency::BRL) %> </td>
                         <td class="width-150px"> <%= produto.estrela %> </td>
                         <td class="text-center width-60px"> <%= produto.promocao ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')   %> </td>
-                        <td class="width-150px"> <%= produto.valor_promocao %> </td>
+                        <td class="width-150px"> <%= produto.valor_promocao.to_i.to_currency(Currency::BRL) %> </td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('pencil'), edit_produto_path(produto), class:'pencil') %></td>
                         <td class="text-center width-60px"><%= link_to(fa_icon('trash'), produto_path(produto), method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %></td>
                     </tr>
