@@ -1,30 +1,54 @@
-<table class="tabela-lado-lado">
+<table class="table_index mb-10px">
     <tbody>
-        <tr>
+        <tr class="tr-border-1px">
             <td>
-                <button id="hide_and_show_ing_on_prod" class="btn btn-padrao">Adicionar novo ingrediente</button>
-            </td>
+                <div class="mb-10px margin-center">
+                    <div class="ing_associ_titulo">
+                        Ingredientes associados
+                    </div>
+                    <div class="div-form-associ">
+                        <% @produto = Produto.where(id: params[:format]).first if @produto == nil && params[:format] != nil %>
+                        <% @produto = Produto.where(id: params[:produto]).first if @produto == nil && params[:produto] != nil %>
+                        <%= form_tag(adicionar_ingrediente_path(), remote: true) do %>
+                            <%= hidden_field_tag(:produto, {}, value: @produto.id) %>
+                            <%= select_tag "Ingrediente", options_from_collection_for_select(@ingredientes, "id", "nome"), class: 'btn btn-padrao select-padrao' %>
+                            <%= submit_tag 'Add', class:'btn btn-success' %>
+                        <% end %>
+                    </div>
+                    <table class="table_index tabela-ing-associ">
+                        <% if @ingredientes_produto.blank? %>
+                            <tr class="tr-border-1px">
+                                <td colspan="2" class="nao_ha_registros padding-10px">
+                                    Não há registros
+                                </td>
+                            </tr>
+                        <% else %>
+                            <thead>
+                                <tr class="tr_table_index pl-10px">
+                                    <th style="border: 1px solid #53060688;padding:5px;padding-left:10px">
+                                        Nome
+                                    </th>
+                                    <th style="border: 1px solid #53060688;padding:5px;width:30px">
+                                        Excluir
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @ingredientes_produto.each do |ing_prod| %>    
+                                    <tr style="border: 1px solid #53060688">
+                                        <td style="padding:5px;border: 1px solid #53060688">
+                                            <%= ing_prod.first.nome %>
+                                        </td>
+                                        <td class="text-center" style="padding:5px;border: 1px solid #53060688">
+                                            <%= link_to(fa_icon('trash'), excluir_ingrediente_path(ing_prod.first.id, @produto), remote: true, method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %>
+                                        </td>
+                                    </tr>    
+                                <% end %>
+                            </tbody>
+                        <% end %>
+                    </table>
+                </div>
+            <td> 
         </tr>
-        <tr>
-            <td>
-                <%= form_tag(adicionar_ingrediente_path()) do %>
-                    <%# hidden_field_tag(:escopo, {}, value: 'm') %>
-                    <%# hidden_field_tag('registros[]', {}, value: @movimento.id) %>
-                    <%= hidden_field_tag(:produto, {}, value: @produto.id) %>
-                    <%= select_tag "Ingrediente", options_from_collection_for_select(@ingredientes, "id", "nome"), class: 'btn btn-primary' %>
-                    <%= submit_tag 'Add', remote: true, data: { disable_with: "Submitting...", class:'btn btn-success' } %>
-                <% end %>
-            </td>
-        </tr>
-        <div class="width-80por" id="ingredientes_produto">
-            <%= render('ingredientes_produto') %>
-        </div>
     </tbody>
 </table>
-
-<script>
-$("#hide_and_show_ing_on_prod").click(function(){
-    $("#ingrediente_select_toggle").show();
-    $("#btn_add").show();
-});
-</script>
