@@ -1,0 +1,17 @@
+<% @produto = Produto.where(id: params[:produto]).first %>
+<table>
+    <thead style="width: 100%; height: 25px">
+        <tr style="border 1px solid black; width: 100%; height: 25px; background-color: red">
+            <th>
+                Compra de produto
+            <th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <%= image_tag @produto.foto.url(:normal) %>
+            </td>
+        </tr>
+    </tbody>
+</table>

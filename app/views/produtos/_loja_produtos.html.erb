@@ -12,7 +12,7 @@
                 <%= image_tag produto.foto.url(:loja), class: 'pic-2', style: 'height: 250px; width: 200px' %>
             </a>
             <ul class="social">
-                <li><%= link_to '', comprar_produto_path(produto: produto), class: 'fa fa-shopping-bag' %></li>
+                <li><%= link_to '', comprar_produto_path(:produto => produto), class: 'fa fa-shopping-bag' %></li>
                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
             </ul>
             <% if ((Time.now.to_f * 1000).floor - (produto.created_at.to_f * 1000).floor) <= 86400000 %>
