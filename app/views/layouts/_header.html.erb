@@ -1,6 +1,6 @@
 <nav class="main-navigation fundo-header">
     <div class="navbar-header animated fadeInUp">
-        <a class="navbar-brand logo-img" href="#"></a>
+        <%= link_to '', home_index_path(), class: 'navbar-brand logo-img' %>
     </div>
     <ul class="nav-list">
         <li class="nav-list-item">
@@ -38,8 +38,7 @@
                         data-toggle="dropdown" style="padding-left: 8px!important">
                     </button>
                     <div class="dropdown-menu ml-118px">
-                        <a class="dropdown-item background-color-padrao color-padrao drop-first-list" href="#">Link 1</a>
-                        <%= link_to 'Minha conta', usuario_path(@usuario_logado), class: 'dropdown-item background-color-padrao color-padrao' %>
+                        <%= link_to 'Minha conta', usuario_path(@usuario_logado), class: 'dropdown-item background-color-padrao color-padrao drop-first-list' %>
                         <%= link_to 'Sair', sair_path, class: 'dropdown-item background-color-padrao color-padrao drop-last-list'  %>
                     </div>
                 </div>
