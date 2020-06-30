@@ -68,8 +68,10 @@ gem 'bcrypt'
 # Validações
 gem 'client_side_validations'
 
-
-#others
+# Imagens
 gem "paperclip", "~> 6.0.0"
-
 gem 'cocaine', '0.3.2'
+
+# Pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

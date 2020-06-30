@@ -125,6 +125,33 @@ class ProdutosController < ApplicationController
         @ingredientes = Ingrediente.where.not(id: @id_ingredientes)
     end
 
+    def comprar_produto
+        @produto = Produto.where(id: params[:produto]).first
+    end
+
+    def comprar_agora
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render pdf: "Boleto de compra",
+                page_size: 'A4',
+                template: "pdfs/pdf.html.erb",
+                layout: "pdf.html.erb",
+                orientation: "Landscape",
+                lowquality: true,
+                zoom: 1,
+                dpi: 75,
+                encoding: "UTF-8",
+                margin: {   
+                    top:    5,
+                    bottom: 0,
+                    left:   5,
+                    right:  5 
+                }
+            end
+        end
+    end
+
     private
 
     def procurar_id_prod
