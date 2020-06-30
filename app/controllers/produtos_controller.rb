@@ -141,11 +141,12 @@ class ProdutosController < ApplicationController
                 lowquality: true,
                 zoom: 1,
                 dpi: 75,
+                encoding: "UTF-8",
                 margin: {   
-                    top:    0,
+                    top:    5,
                     bottom: 0,
-                    left:   0,
-                    right:  0 
+                    left:   5,
+                    right:  5 
                 }
             end
         end
