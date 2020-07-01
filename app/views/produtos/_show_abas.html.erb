@@ -12,13 +12,15 @@
         </li>
     </ul>
 </div>
-<div class="tab_container">
-    <ul class="tabs">
-        <li id="produto_infos" class="tab-link" onclick="current_infos()">
-            <%= 'infos' %>
-        </li>
-    </ul>
-</div>
+<% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
+    <div class="tab_container">
+        <ul class="tabs">
+            <li id="produto_infos" class="tab-link" onclick="current_infos()">
+                <%= 'infos' %>
+            </li>
+        </ul>
+    </div>
+<% end %>
 
 <script>
 

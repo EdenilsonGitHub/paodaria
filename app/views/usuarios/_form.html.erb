@@ -70,41 +70,45 @@
                     <%= u.date_field :data_de_nascimento, class: 'form-control focus-padrao', style: 'width: 100%;' %>
                 </td>
             </tr>
-            <tr>
-                <td class="text-right alinhamento-label-form">
-                    <%= u.label "Empresa", class: 'text-right', style: 'width: 170px' %>
-                </td>
-                <td class="<%= 'pb-6px' if Empresa.any? %>">
-                    <% if Empresa.any? %>
-                        <%= u.select(:empresa_id, Empresa.all.collect {|p| [ p.nome, p.id ] }, {include_blank: true}, class: 'form-control focus-padrao', style: 'width: 100%;')%>
-                    <% else %>
-                        <div style="color: red">Nenhuma empresa foi cadastrada.</div>
-                    <% end %>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-right alinhamento-label-form">
-                    <%= u.label :admin, class: 'text-right', style: 'width: 170px' %>
-                </td>
-                <td class="pb-6px pt-9px">
-                    <%= u.check_box :admin, class: 'focus-check' %>
-                </td>
-            </tr>
-            <tr>
-                <td class="text-right alinhamento-label-form">
-                    <%= u.label :gerente, class: 'text-right', style: 'width: 170px' %>
-                </td>
-                <td class="pb-6px pt-9px">
-                    <%= u.check_box :gerente, class: 'focus-check' %>
-                </td>
-            </tr>
+            <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
+                <tr>
+                    <td class="text-right alinhamento-label-form">
+                        <%= u.label "Empresa", class: 'text-right', style: 'width: 170px' %>
+                    </td>
+                    <td class="<%= 'pb-6px' if Empresa.any? %>">
+                        <% if Empresa.any? %>
+                            <%= u.select(:empresa_id, Empresa.all.collect {|p| [ p.nome, p.id ] }, {include_blank: true}, class: 'form-control focus-padrao', style: 'width: 100%;')%>
+                        <% else %>
+                            <div style="color: red">Nenhuma empresa foi cadastrada.</div>
+                        <% end %>
+                    </td>
+                </tr>
+                <% if @usuario_logado.admin %>
+                    <tr>
+                        <td class="text-right alinhamento-label-form">
+                            <%= u.label :admin, class: 'text-right', style: 'width: 170px' %>
+                        </td>
+                        <td class="pb-6px pt-9px">
+                            <%= u.check_box :admin, class: 'focus-check' %>
+                        </td>
+                    </tr>
+                <% end %>
+                <tr>
+                    <td class="text-right alinhamento-label-form">
+                        <%= u.label :gerente, class: 'text-right', style: 'width: 170px' %>
+                    </td>
+                    <td class="pb-6px pt-9px">
+                        <%= u.check_box :gerente, class: 'focus-check' %>
+                    </td>
+                </tr>
+            <% end %>
         </tbody>
     </table>
 
     <hr class="hr-system-100por">
 
     <div class='width-100por text-center'>
-        <%= u.submit 'Cadastrar', class: 'text-center btn botao-cor-padrao' %>
+        <%= u.submit 'Confirmar', class: 'text-center btn botao-cor-padrao' %>
     </div>
 
 <% end %>
