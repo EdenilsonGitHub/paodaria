@@ -5,8 +5,8 @@
             <% if @usuario_logado.admin || @usuario_logado.gerente %>
                 <div class="botoes-org">
                     <%= link_to 'Excluir', produto_path(@produto.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
-                    <%= link_to 'Editar', edit_produto_path(@produto.id), class:'btn btn-light' %>
-                    <%= link_to 'Novo registro', new_produto_path, class:'btn btn-success' %>
+                    <%= link_to 'Editar', edit_produto_path(@produto.id, { show: "show"}), class:'btn btn-light' %>
+                    <%= link_to 'Novo registro', new_produto_path({ show: "novo", produto: @produto}), class:'btn btn-success' %>
                 </div>
             <% end %>
         <% end %>
