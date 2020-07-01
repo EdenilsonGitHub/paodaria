@@ -44,7 +44,13 @@
     <hr class="hr-system-100por">
 
     <div class='width-100por text-center'>
-        <%= u.submit 'Confirmar', class: 'text-center btn botao-cor-padrao' %>
+        <% if params[:show] == "show" || params[:show] == "novo" %>
+            <% @ingrediente = Ingrediente.where(id: params[:ingrediente]).first if params[:ingrediente] != nil %>
+            <%= link_to 'Voltar', ingrediente_path(@ingrediente), class: "btn btn-danger" %>
+        <% else %>
+            <%= link_to 'Voltar', ingredientes_path(), class: "btn btn-danger" %>
+        <% end %>
+        <%= u.submit 'Confirmar', class: 'text-center btn btn-success' %>
     </div>
 
 <% end %>

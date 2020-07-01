@@ -3,8 +3,8 @@
         <div class="label-org"> Classe produto: (<%= @classe.nome %>) </div>
         <div class="botoes-org">
             <%= link_to 'Excluir', class_path(@classe.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
-            <%= link_to 'Editar', edit_class_path(@classe.id), class:'btn btn-light' %>
-            <%= link_to 'Novo registro', new_class_path, class:'btn btn-success' %>
+            <%= link_to 'Editar', edit_class_path(@classe.id, { show: "show"}), class:'btn btn-light' %>
+            <%= link_to 'Novo registro', new_class_path({ show: "novo", classe: @classe}), class:'btn btn-success' %>
         </div>
     </div>
     <table class="tabela-lado-lado mt-12px">

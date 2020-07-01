@@ -6,7 +6,7 @@
                     <div class="ing_associ_titulo">
                         Ingredientes associados
                     </div>
-                    <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
+                    <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
                             <div class="div-form-associ">
                                 <% @produto = Produto.where(id: params[:format]).first if @produto == nil && params[:format] != nil %>
                                 <% @produto = Produto.where(id: params[:produto]).first if @produto == nil && params[:produto] != nil %>
@@ -32,7 +32,7 @@
                                     <th style="border: 1px solid #53060688;padding:5px;padding-left:10px">
                                         Nome
                                     </th>
-                                    <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
+                                    <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
                                         <th style="border: 1px solid #53060688;padding:5px;width:30px">
                                             Excluir
                                         </th>
@@ -45,7 +45,7 @@
                                         <td style="padding:5px;border: 1px solid #53060688">
                                             <%= ing_prod.first.nome %>
                                         </td>
-                                        <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
+                                        <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
                                             <td class="text-center" style="padding:5px;border: 1px solid #53060688">
                                                 <%= link_to(fa_icon('trash'), excluir_ingrediente_path(ing_prod.first.id, @produto), remote: true, method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %>
                                             </td>

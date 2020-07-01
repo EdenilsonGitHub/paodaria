@@ -1,13 +1,13 @@
 <div class="conteudo">
     <div class="div-cabeca">
         <div class="label-org"> Usuário: (<%= @usuario.nome %>) </div>
-        <div class="botoes-org" style="<%= "margin-right: 5px; width: 68px" unless @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>">
-            <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
+        <div class="botoes-org" style="<%= "margin-right: 5px; width: 68px" unless @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>">
+            <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
                 <%= link_to 'Excluir', usuario_path(@usuario.id), data: { confirm: 'Deseja excluir este usuário permanentemente?' }, method: :delete, class:'btn btn-danger' %>
             <% end %>
-            <%= link_to 'Editar', edit_usuario_path(@usuario.id), class:'btn btn-light' %>
-            <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
-                <%= link_to 'Novo registro', new_usuario_path, class:'btn btn-success' %>
+            <%= link_to 'Editar', edit_usuario_path(@usuario.id, { show: "show"}), class:'btn btn-light' %>
+            <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
+                <%= link_to 'Novo registro', new_usuario_path({ show: "novo", usuario: @usuario}), class:'btn btn-success' %>
             <% end %>
         </div>
     </div>
