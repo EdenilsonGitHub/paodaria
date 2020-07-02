@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_235234) do
     t.integer "unidade_medida_id"
     t.float "valor_unidade_medida"
     t.string "criado_por"
+    t.integer "classe_id"
   end
 
   create_table "rel_prod_ing", force: :cascade do |t|
