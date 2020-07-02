@@ -1,6 +1,8 @@
 <div class="topo-system">
-    <% sistema = Empresa.where(id: @usuario_logado.empresa_id).first.sistema %>
-    <%= sistema if sistema %>
+    <%# sistema = Empresa.where(id: @usuario_logado.empresa_id).first.sistema if @usuario_logado != nil %>
+    <%# sistema if sistema %>
+    <%# "Sistema de gestão e qualidade da Pãodaria(1.0.0)" if sistema == nil %>
+    <%= "Sistema de Gestão e Qualidade da Pãodaria(1.0.0)"%>
 </div>
 <nav class="main-navigation fundo-header">
     <div class="navbar-header animated fadeInUp">
