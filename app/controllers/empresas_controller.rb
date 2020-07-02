@@ -10,8 +10,7 @@ class EmpresasController < ApplicationController
     end
     
     def create
-        @empresa = Empresa.new(params.require(:empresa).permit(:nome, :cnpj, :telefone, :email, :ativo, :sigla, :razao_social, :logo, :pais, :estado,
-                    :cidade, :rua, :numero, :complemento, :cep))
+        @empresa = Empresa.new(params.require(:empresa).permit(:nome, :cnpj, :telefone, :email, :ativo, :sigla, :razao_social, :logo, :pais, :estado, :cidade, :rua, :numero, :complemento, :cep, :sistema))
         if @empresa.save
             redirect_to empresas_path            
         else
@@ -23,8 +22,7 @@ class EmpresasController < ApplicationController
     end
 
     def update
-        if @empresa.update_attributes(params.require(:empresa).permit(:nome, :cnpj, :telefone, :email, :ativo, :sigla, :razao_social, :logo, :pais, :estado,
-            :cidade, :rua, :numero, :complemento, :cep))
+        if @empresa.update_attributes(params.require(:empresa).permit(:nome, :cnpj, :telefone, :email, :ativo, :sigla, :razao_social, :logo, :pais, :estado, :cidade, :rua, :numero, :complemento, :cep, :sistema))
             redirect_to empresas_path
         else
             render 'edit'

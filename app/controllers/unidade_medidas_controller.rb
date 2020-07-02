@@ -6,6 +6,9 @@ class UnidadeMedidasController < ApplicationController
         @unidade_medidas = UnidadeMedida.all
     end
 
+    def show
+    end
+
     def new
         @unidade_medida = UnidadeMedida.new
     end
