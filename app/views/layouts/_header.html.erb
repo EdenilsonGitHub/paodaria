@@ -1,3 +1,7 @@
+<div class="topo-system">
+    <% sistema = Empresa.where(id: @usuario_logado.empresa_id).first.sistema %>
+    <%= sistema if sistema %>
+</div>
 <nav class="main-navigation fundo-header">
     <div class="navbar-header animated fadeInUp">
         <%= link_to '', home_index_path(), class: 'navbar-brand logo-img' %>
