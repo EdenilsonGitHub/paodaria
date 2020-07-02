@@ -48,6 +48,14 @@
             </tr>
             <tr>
                 <td class="text-right alinhamento-label-form">
+                    <%= u.label :sistema, "Nome do sistema", class: 'text-right', style: 'width: 170px' %>
+                </td>
+                <td class="pb-6px">
+                    <%= u.text_field :sistema, class: 'form-control focus-padrao', style: 'width: 100%;' %>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right alinhamento-label-form">
                     <%= u.label :cnpj, "CNPJ", class: 'text-right', style: 'width: 170px' %>
                 </td>
                 <td class="pb-6px">

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_003648) do
+ActiveRecord::Schema.define(version: 2020_07_01_235234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cat", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "classe", force: :cascade do |t|
     t.string "nome"
@@ -42,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_003648) do
     t.string "logo_content_type"
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string "sistema"
   end
 
   create_table "ing", force: :cascade do |t|
@@ -60,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_003648) do
     t.string "servico_prestado"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "empresa_id"
     t.string "logo_parc_file_name"
     t.string "logo_parc_content_type"
     t.integer "logo_parc_file_size"
