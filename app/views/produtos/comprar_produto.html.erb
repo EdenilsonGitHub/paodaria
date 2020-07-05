@@ -45,7 +45,13 @@
             <div class="d-flex align-items-center offers"><i class="fa fa-check-square-o mt-1"></i><span class="ml-1 font-weight-bold">Ofertas</span><span class="ml-1">Desconto de 20% no pagamento com cartões google<br></span></div>
             <div class="d-flex align-items-center mt-5 delivery"><i class="fa fa-map-marker"></i><span class="ml-2">Entregue em até 5 dias úteis<br></span><span class="ml-2 mr-2">|<br></span><span class="ml-2 mr-2 text-success">Grátis<br></span></div>
             <hr>
-            <div class="mt-3"><button class="btn btn-dark mr-2" type="button">Adicionar ao carinho</button><%= link_to 'Comprar agora', comprar_agora_path(:produto => @produto, :format => :pdf), class: 'btn btn-success' %></div>
+            <div class="mt-3"><button class="btn btn-dark mr-2" type="button">Adicionar ao carinho</button>
+            <% if @usuario_logado != nil %>
+                <%= link_to 'Comprar agora', comprar_agora_path(:produto => @produto, :format => :pdf), class: 'btn btn-success' %></div>
+            <% else %>
+                <%= link_to 'Comprar agora', login_path(), class: 'btn btn-success' %></div>
+            <% end %>
         </div>
     </div>
 </div>
+<div style="height:40px;width:100%"></div>

@@ -1,0 +1,153 @@
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+// Importado do bootstrap
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+      background-color: #f9f9f9;
+    }
+  }
+}
+
+table.marker{
+	tbody{
+		tr:hover{
+			background-color: #FFFFDD;
+		}
+	}
+}
+
+table.tabela_lista{
+	color: #666;
+	width: 100%;
+	border-spacing: 2px;
+	tr.odd{background-color: #f9f9f9}
+	
+	tr.even{background-color: white;}
+
+	tr.odd, tr.even{
+		&:not(.nohover):hover{
+			background-color: #FFFFDD;
+		};
+	}
+
+	tr.link_nao_previsto{
+		background-color: #e3f9ff;
+	}
+
+	tr.nao_disponivel{
+		background-color: #ffe3e3;
+	}
+	
+	th, td{
+		text-align: left;
+		vertical-align: top;
+		padding: 4px;
+		line-height: 20px;
+	}
+
+	.direita{ text-align: right;}
+	.centro{ text-align: center;}
+
+	th{
+		border: 1px solid #999999;
+		background-color: #EEEEEE;
+		&.micro{
+			min-width: 50px;
+			width: 50px;
+		}
+		&.pequena{
+			width: 100px;
+		}
+		&.media{
+			width: 200px;
+		}
+		&.lote_interno{
+			width:  140px;
+		}
+		&.lote_externo{
+			width:  140px;
+		}
+		&.codigo{
+			width:  60px;
+		}
+		&.sigla{
+			width:  85px;
+		}
+		&.check_box{
+			width: 20px;
+			display: none;
+		}
+
+		&.titulo_consulta_ue{
+			color: black;
+			font-size: 14px;
+			text-align: center;
+		}
+	}
+
+	td{
+		border: 1px solid #d7d7d7;
+		&.check_box{
+			display: none;
+		}
+	}
+
+	tr.false{
+		background-color: #ffe3e3;
+		opacity: 0.3;
+	}
+
+	&.impressao{
+		td, tr{
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+	}
+}
+
+div.scroll {
+	overflow-y: hidden;
+	overflow-x: auto;
+	width: 100%;
+}
+
+.quebrar_colunas{
+	white-space: normal !important;
+}
+
+tr.ingredient-right {
+	background-color: #E1FFE1;
+}
+
+tr.ingredient-left {
+	background-color: #FFE3E3;
+}
+
+td.ingredient-up {
+	color: #40B04E;
+}
+
+td.ingredient-down {
+	color: #B31313;
+}
+
+td.ingredient-right {
+	color: #40B04E;
+}
+
+td.ingredient-left {
+	color: #B31313;
+}
+
+table.borda-larga{
+	td{
+		border: 2px solid #d7d7d7 !important;
+	}
+}
+
+tr.fundo-verde{
+	background-color: #d4fff0;
+}
