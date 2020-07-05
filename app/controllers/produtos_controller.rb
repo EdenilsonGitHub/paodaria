@@ -133,22 +133,15 @@ class ProdutosController < ApplicationController
         respond_to do |format|
             format.html
             format.pdf do
-                render pdf: "Boleto de compra",
-                page_size: 'A4',
-                template: "pdfs/pdf.html.erb",
-                layout: "pdf.html.erb",
-                orientation: "Landscape",
-                lowquality: true,
-                zoom: 1,
-                dpi: 75,
-                encoding: "UTF-8",
-                margin: {   
-                    top:    5,
-                    bottom: 0,
-                    left:   5,
-                    right:  5 
-                }
-            end
+				render  template: "impressao/resultado", 
+				        handlers: [:erb], 
+				        formats: [:pdf],
+				        pdf: "Compra de produto",
+				        layout: 'exportacao_pdf.html',
+				        header: {:html => {:template => 'impressao/header', locals: { titulo: 'Compra de produto' }, handlers: [:erb], formats: [:pdf]}, :spacing => 6, :line => false},
+				        footer: {:html => {:template => 'impressao/footer', handlers: [:erb], formats: [:pdf]}, :line => false},
+				        margin: { :bottom => 20, :top => 35, :left => 2, :right => 2}
+			end
         end
     end
 
