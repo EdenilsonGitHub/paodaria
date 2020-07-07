@@ -33,22 +33,18 @@
                 <td class="td-index-esquerda"> Telefone: </td>
                 <td class="td-index-direita"> <%= @usuario.telefone %> </td>
             </tr>
-            <% if @usuario.empresa_id != nil %>
-                <tr>
-                    <td class="td-index-esquerda"> Empresa: </td>
-                    <td class="td-index-direita"> <%= Empresa.where(id: @usuario.empresa_id).first.nome %> </td>
-                </tr>
-            <% end %>
-            <% if @usuario_logado != nil && @usuario_logado.admin || @usuario_logado.gerente %>
-                <tr>        
-                    <td class="td-index-esquerda"> Gerente: </td>
-                    <td class="td-index-direita"> <%= @usuario.gerente ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')   %> </td>
-                </tr>            
-                <tr>
-                    <td class="td-index-esquerda"> Administrador: </td>
-                    <td class="td-index-direita"> <%= @usuario.admin ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
-                </tr>
-            <% end %>
+            <tr>
+                <td class="td-index-esquerda"> Empresa: </td>
+                <td class="td-index-direita"> <%= @usuario.empresa.nome%> </td>
+            </tr>            
+            <tr>        
+                <td class="td-index-esquerda"> Gerente: </td>
+                <td class="td-index-direita"> <%= @usuario.gerente ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')   %> </td>
+            </tr>            
+            <tr>
+                <td class="td-index-esquerda"> Administrador: </td>
+                <td class="td-index-direita"> <%= @usuario.admin ? ico_yes(class: 'fa-14') : ico_no(class: 'fa-14')  %> </td>
+            </tr>
         </tbody>
     </table>
 </div>
