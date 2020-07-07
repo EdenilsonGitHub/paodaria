@@ -29,11 +29,11 @@
                         <% else %>
                             <thead>
                                 <tr class="tr_table_index pl-10px">
-                                    <th style="border: 1px solid #53060688;padding:5px;padding-left:10px">
+                                    <th style="border: 1px solid #920f0f88;padding:5px;padding-left:10px">
                                         Nome
                                     </th>
                                     <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
-                                        <th style="border: 1px solid #53060688;padding:5px;width:30px">
+                                        <th style="border: 1px solid #920f0f88;padding:5px;width:30px">
                                             Excluir
                                         </th>
                                     <% end %>
@@ -41,12 +41,12 @@
                             </thead>
                             <tbody>
                                 <% @ingredientes_produto.each do |ing_prod| %>    
-                                    <tr style="border: 1px solid #53060688;">
-                                        <td style="padding:5px;border: 1px solid #53060688">
+                                    <tr style="border: 1px solid #920f0f88;">
+                                        <td style="padding:5px;border: 1px solid #920f0f88">
                                             <%= ing_prod.first.nome %>
                                         </td>
                                         <% if @usuario_logado != nil && (@usuario_logado.admin || @usuario_logado.gerente) %>
-                                            <td class="text-center" style="padding:5px;border: 1px solid #53060688">
+                                            <td class="text-center" style="padding:5px;border: 1px solid #920f0f88">
                                                 <%= link_to(fa_icon('trash'), excluir_ingrediente_path(ing_prod.first.id, @produto), remote: true, method: :delete, data: { confirm: 'Deseja excluir este usuário permanentemente?' }, class: 'trash' ) %>
                                             </td>
                                         <% end %>
